@@ -1,0 +1,1987 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keamanan Data dan Informasi - Pembelajaran Interaktif Siswa SMP/MTs</title>
+  <!-- Google Fonts: Poppins & Nunito -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Stylesheet Eksternal -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============================================== -->
+  <!-- HEADER & NAVBAR (6 MENU UTAMA + PROGRES)       -->
+  <!-- ============================================== -->
+  <header class="app-header">
+    <div class="header-container">
+      <!-- Logo Brand Pembelajaran -->
+      <div class="brand-logo" onclick="navigateTo('beranda')" role="button" tabindex="0" title="Kembali ke Beranda">
+        <div class="logo-badge">🛡️</div>
+        <div class="brand-text">
+          <span class="brand-subject">Informatika SMP/MTs</span>
+          <span class="brand-title">Keamanan Data</span>
+        </div>
+      </div>
+
+      <!-- Indikator Progres Belajar Header -->
+      <div class="header-progress-wrap" title="Progres Eksplorasi Materi & Aktivitas Siswa">
+        <div class="progress-labels">
+          <span class="progress-title">⚡ Progres Belajar</span>
+          <span class="progress-percent" id="globalProgressText">0%</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="globalProgressBar" style="width: 0%;"></div>
+        </div>
+      </div>
+
+      <!-- Tombol Hamburger Mobile -->
+      <button class="menu-toggle" id="menuToggleBtn" aria-label="Buka Menu Navigasi" onclick="toggleMobileNav()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- 6 MENU UTAMA WAJIB -->
+      <nav class="main-nav" id="mainNavbar">
+        <ul class="nav-list">
+          <li>
+            <button class="nav-link active" data-target="beranda" onclick="navigateTo('beranda')">
+              <span class="nav-icon">🏠</span>
+              <span class="nav-text">Beranda</span>
+            </button>
+          </li>
+          <li>
+            <button class="nav-link" data-target="materi" onclick="navigateTo('materi')">
+              <span class="nav-icon">📚</span>
+              <span class="nav-text">Materi</span>
+            </button>
+          </li>
+          <li>
+            <button class="nav-link" data-target="ancaman" onclick="navigateTo('ancaman')">
+              <span class="nav-icon">🔐</span>
+              <span class="nav-text">Kenali Ancaman</span>
+            </button>
+          </li>
+          <li>
+            <button class="nav-link" data-target="aktivitas" onclick="navigateTo('aktivitas')">
+              <span class="nav-icon">🎮</span>
+              <span class="nav-text">Aktivitas</span>
+            </button>
+          </li>
+          <li>
+            <button class="nav-link" data-target="kuis" onclick="navigateTo('kuis')">
+              <span class="nav-icon">📝</span>
+              <span class="nav-text">Kuis</span>
+            </button>
+          </li>
+          <li>
+            <button class="nav-link" data-target="rangkuman" onclick="navigateTo('rangkuman')">
+              <span class="nav-icon">💡</span>
+              <span class="nav-text">Rangkuman</span>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============================================== -->
+  <!-- KONTEN UTAMA (SINGLE PAGE APPLICATION)         -->
+  <!-- ============================================== -->
+  <main class="main-container">
+
+    <!-- ============================================== -->
+    <!-- 1. MENU BERANDA                                -->
+    <!-- ============================================== -->
+    <section id="beranda" class="content-section active">
+      <!-- Hero Card Utama -->
+      <div class="hero-card">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="badge-tag">MODUL INFORMATIKA KELAS VIII & IX • LITERASI KEAMANAN DIGITAL</div>
+            <h1>KEAMANAN DATA DAN INFORMASI</h1>
+            <div class="hero-tagline">“Lindungi Data, Jaga Privasi!”</div>
+            <p class="hero-intro">
+              Setiap hari kita menggunakan berbagai perangkat dan aplikasi. Kita menyimpan foto, pesan, password, tugas, dan informasi pribadi. Karena itu, data perlu dijaga agar tidak disalahgunakan.
+            </p>
+            <div class="hero-actions">
+              <button class="btn btn-primary" onclick="navigateTo('materi')">
+                🚀 Mulai Belajar
+              </button>
+              <button class="btn btn-secondary" onclick="navigateTo('aktivitas')">
+                🎮 Coba Aktivitas & Game
+              </button>
+            </div>
+          </div>
+
+          <!-- Diagram Alur Visual Edukatif Sederhana -->
+          <div class="hero-visual">
+            <div class="flow-container">
+              <div class="flow-title">Rantai Keamanan Digital Siswa</div>
+              <div class="flow-steps">
+                <div class="flow-step-item">
+                  <div class="flow-icon">👤</div>
+                  <div class="flow-text">
+                    <div class="flow-label">Siswa</div>
+                    <div class="flow-desc">Pengguna cerdas & beretika</div>
+                  </div>
+                </div>
+                <div class="flow-arrow-down">↓</div>
+
+                <div class="flow-step-item">
+                  <div class="flow-icon">📱</div>
+                  <div class="flow-text">
+                    <div class="flow-label">Smartphone & Laptop</div>
+                    <div class="flow-desc">Gawai belajar & berinteraksi</div>
+                  </div>
+                </div>
+                <div class="flow-arrow-down">↓</div>
+
+                <div class="flow-step-item">
+                  <div class="flow-icon">🔐</div>
+                  <div class="flow-text">
+                    <div class="flow-label">Password & OTP</div>
+                    <div class="flow-desc">Kunci rahasia perlindungan akun</div>
+                  </div>
+                </div>
+                <div class="flow-arrow-down">↓</div>
+
+                <div class="flow-step-item">
+                  <div class="flow-icon">🛡️</div>
+                  <div class="flow-text">
+                    <div class="flow-label">Keamanan & Kebiasaan Aman</div>
+                    <div class="flow-desc">Benteng pencegah kejahatan siber</div>
+                  </div>
+                </div>
+                <div class="flow-arrow-down">↓</div>
+
+                <div class="flow-step-item">
+                  <div class="flow-icon">☁️</div>
+                  <div class="flow-text">
+                    <div class="flow-label">Data & Privasi</div>
+                    <div class="flow-desc">Informasi berharga tetap aman</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dashboard Progress Belajar di Beranda -->
+      <div class="progress-dashboard-card">
+        <div class="progress-dash-header">
+          <div>
+            <h3 style="font-size: 1.2rem; color: var(--color-primary-navy); margin-bottom: 0.2rem;">
+              📊 Pantauan Progres Belajar Mandiri
+            </h3>
+            <p style="font-size: 0.88rem; color: var(--color-text-muted);">
+              Selesaikan modul materi, tuntaskan 6 aktivitas interaktif, mainkan simulasi mini-game, dan kerjakan kuis!
+            </p>
+          </div>
+          <button class="btn btn-secondary" onclick="confirmResetProgress()" style="font-size: 0.82rem; padding: 0.45rem 0.9rem;">
+            🔄 Reset Progres
+          </button>
+        </div>
+
+        <div style="margin-top: 0.5rem;">
+          <div style="display: flex; justify-content: space-between; font-weight: 700; font-size: 0.9rem; margin-bottom: 0.35rem;">
+            <span>Pencapaian Keseluruhan</span>
+            <span id="dashProgressPercent" style="color: var(--color-primary-blue);">0%</span>
+          </div>
+          <div class="progress-track" style="height: 12px;">
+            <div class="progress-fill" id="dashProgressBar" style="width: 0%; height: 100%;"></div>
+          </div>
+        </div>
+
+        <div class="progress-dash-stats">
+          <div class="stat-pill">
+            <span class="stat-pill-icon">📚</span>
+            <div>
+              <div class="stat-pill-val" id="dashModulesCount">0 / 4 Modul</div>
+              <div class="stat-pill-label">Materi Dibuka</div>
+            </div>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-pill-icon">🎮</span>
+            <div>
+              <div class="stat-pill-val" id="dashActCount">0 / 6 Aktivitas</div>
+              <div class="stat-pill-label">Aktivitas Tuntas</div>
+            </div>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-pill-icon">⭐</span>
+            <div>
+              <div class="stat-pill-val" id="dashGameScore">0 / 100 Poin</div>
+              <div class="stat-pill-label">Skor Mini-Game</div>
+            </div>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-pill-icon">📝</span>
+            <div>
+              <div class="stat-pill-val" id="dashQuizScore">Belum Kuis</div>
+              <div class="stat-pill-label">Nilai Kuis (15 Soal)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 Pilar Pokok Pembelajaran -->
+      <div class="cards-grid-3">
+        <div class="concept-card card-navy">
+          <div class="card-icon">🛡️</div>
+          <h3>LINDUNGI DATA PRIBADI</h3>
+          <p>Mengenali informasi rahasia seperti identitas, alamat rumah, nomor telepon, dan data akun agar tidak bocor ke publik.</p>
+          <div class="card-note">Data pribadimu adalah hak berhargamu</div>
+        </div>
+
+        <div class="concept-card card-blue">
+          <div class="card-icon">🔐</div>
+          <h3>AMANKAN AKUN & GAWAI</h3>
+          <p>Membiasakan kata sandi kuat, menjaga kerahasiaan OTP, mengunci layar smartphone/laptop, dan rutin mencadangkan tugas.</p>
+          <div class="card-note">Kunci rapat gerbang akun digitalmu</div>
+        </div>
+
+        <div class="concept-card card-green">
+          <div class="card-icon">👁️</div>
+          <h3>WASPADA & BIJAK DIGITAL</h3>
+          <p>Mendeteksi phishing, menghindari malware, menghargai privasi teman, serta menjaga rekam jejak digital yang positif.</p>
+          <div class="card-note">Pikirkan sebelum mengunggah sesuatu</div>
+        </div>
+      </div>
+
+      <!-- 4 Tujuan Pembelajaran Utama -->
+      <div class="objectives-box">
+        <div class="obj-head">
+          <span class="obj-icon">🎯</span>
+          <div>
+            <h3>Tujuan Pembelajaran</h3>
+            <p>Setelah mempelajari modul interaktif ini, siswa diharapkan mampu:</p>
+          </div>
+        </div>
+        <div class="obj-grid-4">
+          <div class="obj-card-item">
+            <div class="obj-num-badge">1</div>
+            <div class="obj-text">
+              <strong>Memahami Konsep Data & Privasi</strong>
+              <p style="margin: 0.25rem 0 0; font-size: 0.88rem; color: var(--color-text-muted);">Menjelaskan pengertian data dan informasi serta membedakan data pribadi yang wajib dijaga dengan data umum.</p>
+            </div>
+          </div>
+          <div class="obj-card-item">
+            <div class="obj-num-badge">2</div>
+            <div class="obj-text">
+              <strong>Mengamankan Akun & Perangkat</strong>
+              <p style="margin: 0.25rem 0 0; font-size: 0.88rem; color: var(--color-text-muted);">Mampu membuat password yang kuat, menjaga kerahasiaan kode OTP, mengunci gawai, dan rutin melakukan backup data.</p>
+            </div>
+          </div>
+          <div class="obj-card-item">
+            <div class="obj-num-badge">3</div>
+            <div class="obj-text">
+              <strong>Mengenali Ancaman Digital</strong>
+              <p style="margin: 0.25rem 0 0; font-size: 0.88rem; color: var(--color-text-muted);">Mengidentifikasi bahaya phishing, malware/virus, link palsu, dan berbagai modus penipuan online sehari-hari.</p>
+            </div>
+          </div>
+          <div class="obj-card-item">
+            <div class="obj-num-badge">4</div>
+            <div class="obj-text">
+              <strong>Beretika & Bijak Berinternet</strong>
+              <p style="margin: 0.25rem 0 0; font-size: 0.88rem; color: var(--color-text-muted);">Menghormati privasi orang lain, menyadari dampak jejak digital, serta menentukan tindakan tepat saat menghadapi bahaya siber.</p>
+            </div>
+          </div>
+        </div>
+        <div class="obj-action" style="margin-top: 1.5rem; text-align: center;">
+          <button class="btn btn-primary" onclick="navigateTo('materi')">
+            Mulai Masuk ke Modul Materi ➔
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- 2. MENU MATERI PEMBELAJARAN (A SAMPAI L)       -->
+    <!-- ============================================== -->
+    <section id="materi" class="content-section">
+      <div class="section-heading">
+        <div class="badge-tag">MODUL MATERI TERSTRUKTUR (BAGIAN A - L)</div>
+        <h2>Materi Pembelajaran Lengkap & Interaktif</h2>
+        <p>Disusun khusus dengan bahasa sederhana, contoh kehidupan sehari-hari siswa SMP/MTs, dan kartu interaktif.</p>
+      </div>
+
+      <!-- Tab Navigasi 4 Modul Inti -->
+      <div class="materi-tabs-nav">
+        <button class="materi-tab-btn active" onclick="switchMateriTab(1)">
+          <span>📊</span> <span>1. Data & Privasi (A, B, C)</span>
+        </button>
+        <button class="materi-tab-btn" onclick="switchMateriTab(2)">
+          <span>🔐</span> <span>2. Akun & Perangkat (D, E, J, K)</span>
+        </button>
+        <button class="materi-tab-btn" onclick="switchMateriTab(3)">
+          <span>⚠️</span> <span>3. Phishing & Malware (F, G)</span>
+        </button>
+        <button class="materi-tab-btn" onclick="switchMateriTab(4)">
+          <span>🌐</span> <span>4. Privasi & Aturan Emas (H, I, L)</span>
+        </button>
+      </div>
+
+      <!-- ================= MODUL 1 ================= -->
+      <div class="materi-pane active" id="materiPane1">
+        <div class="materi-card">
+          <div class="materi-header">
+            <span class="materi-letter">1</span>
+            <div>
+              <h3>Modul 1: Konsep Dasar Data, Keamanan, & Data Pribadi</h3>
+              <p>Membahas pengertian data vs informasi, alasan data harus dilindungi, dan jenis-jenis data pribadi.</p>
+            </div>
+          </div>
+
+          <!-- A. PENGERTIAN DATA DAN INFORMASI -->
+          <div class="submodule-section">
+            <h4 class="submodule-title">A. Pengertian Data dan Informasi</h4>
+            <p>
+              Di era digital saat ini, kita sering mendengar kata "data" dan "informasi". Keduanya terdengar mirip, tetapi sebenarnya memiliki perbedaan penting:
+            </p>
+
+            <div class="quote-card" style="margin-bottom: 1rem;">
+              <p><strong>📄 Data:</strong> Kumpulan fakta atau keterangan mentah yang dapat digunakan untuk memberikan informasi.</p>
+              <div style="font-size: 0.88rem; color: var(--color-text-muted); margin-top: 0.35rem;">
+                <strong>Contoh Data:</strong> Nama siswa, umur, nilai ujian, foto, nomor telepon, tinggi badan.
+              </div>
+            </div>
+
+            <div class="quote-card" style="margin-bottom: 1rem;">
+              <p><strong>💡 Informasi:</strong> Data yang telah diolah dan disusun sehingga memiliki makna atau dapat digunakan untuk memahami sesuatu.</p>
+            </div>
+
+            <p style="font-weight: 700; margin-bottom: 0.5rem;">Perhatikan Contoh Sederhana Hubungan Data dan Informasi Berikut:</p>
+            <div class="data-vs-info-grid">
+              <div class="data-box">
+                <span class="box-tag data-tag">FAKTA MENTAH (DATA)</span>
+                <div class="example-val">80, 85, 90</div>
+                <p>Hanya deretan angka nilai ujian tanpa keterangan siapa pemiliknya atau bagaimana trennya.</p>
+              </div>
+              <div class="vs-arrow">➔</div>
+              <div class="info-box">
+                <span class="box-tag info-tag">MAKNA BERGUNA (INFORMASI)</span>
+                <div class="example-val">“Nilai Siswa Meningkat!”</div>
+                <p>Data diolah dan dianalisis sehingga guru dan orang tua memahami prestasi belajar siswa.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- B. MENGAPA DATA HARUS DIJAGA? -->
+          <div class="submodule-section" style="margin-top: 2rem;">
+            <h4 class="submodule-title">B. Mengapa Data Harus Dijaga?</h4>
+            <p>
+              Sama seperti kita mengunci pintu rumah atau menyimpan dompet di tempat aman, data dan informasi kita di internet juga harus dilindungi. Jika tidak dijaga, data dapat:
+            </p>
+            <ul style="padding-left: 1.25rem; font-size: 0.95rem; margin-bottom: 1rem;">
+              <li><strong>Disalahgunakan:</strong> Digunakan oleh orang lain untuk tindakan merugikan tanpa sepengetahuan kita.</li>
+              <li><strong>Dicuri:</strong> Diambil alih oleh pihak jahat untuk membajak akun media sosial atau akun game.</li>
+              <li><strong>Disebarkan Tanpa Izin:</strong> Dibocorkan ke grup publik sehingga mempermalukan pemiliknya.</li>
+              <li><strong>Digunakan untuk Menipu:</strong> Pelaku berpura-pura menjadi dirimu dan meminjam uang atau pulsa ke teman-temanmu.</li>
+              <li><strong>Mengganggu Privasi Seseorang:</strong> Mengakibatkan ketidaknyamanan, teror spam, atau rasa takut.</li>
+            </ul>
+
+            <div style="background: #fffbeb; border-left: 4px solid #f59e0b; padding: 0.85rem 1rem; border-radius: var(--radius-sm); margin-bottom: 1rem;">
+              <p style="font-size: 0.9rem; margin-bottom: 0.35rem;">
+                📌 <em>Contoh Nyata:</em> <strong>Foto pribadi yang disebarkan tanpa izin</strong> dapat merugikan reputasi pemiliknya dan memicu perundungan (bullying).
+              </p>
+              <p style="font-size: 0.9rem;">
+                📌 <em>Contoh Nyata:</em> <strong>Password yang diketahui orang lain</strong> dapat menyebabkan akun digunakan untuk posting hal-hal terlarang tanpa seizinmu.
+              </p>
+            </div>
+
+            <!-- Ilustrasi B: Gembok Terlindungi vs Tidak -->
+            <div class="compare-two-grid">
+              <div class="compare-card compare-danger">
+                <h4>🔓 Data Tidak Terlindungi</h4>
+                <p style="font-size: 0.9rem;">Sembarangan berbagi password, asal klik link, nomor HP disebar di medsos.</p>
+                <div style="font-weight: 800; color: #b91c1c; margin-top: 0.5rem;">⚠️ Risiko Tinggi: Pembajakan akun & penipuan online!</div>
+              </div>
+              <div class="compare-card compare-safe">
+                <h4>🔐 Data Terlindungi Rapat</h4>
+                <p style="font-size: 0.9rem;">Password kuat, OTP dirahasiakan, gawai dikunci PIN, backup rutin.</p>
+                <div style="font-weight: 800; color: #047857; margin-top: 0.5rem;">🛡️ Lebih Aman: Belajar & berkreasi online dengan tenang!</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- C. DATA PRIBADI -->
+          <div class="submodule-section" style="margin-top: 2rem;">
+            <h4 class="submodule-title">C. Data Pribadi</h4>
+            <div class="quote-card" style="margin-bottom: 1rem;">
+              <p>
+                <strong>Data Pribadi</strong> adalah setiap informasi yang berkaitan dengan seseorang dan dapat mengidentifikasi diri orang tersebut, sehingga perlu dijaga agar tidak disalahgunakan.
+              </p>
+            </div>
+
+            <p>Data pribadi dibagi menjadi beberapa kelompok penting:</p>
+            <div class="category-4-grid">
+              <div class="cat-item-card">
+                <div class="cat-icon">🧑</div>
+                <h4>Identitas Diri</h4>
+                <ul class="cat-list">
+                  <li>Nama lengkap</li>
+                  <li>Tanggal lahir</li>
+                  <li>Alamat rumah lengkap</li>
+                  <li>NIK / Nomor Kartu Keluarga</li>
+                </ul>
+              </div>
+              <div class="cat-item-card">
+                <div class="cat-icon">📱</div>
+                <h4>Kontak Pribadi</h4>
+                <ul class="cat-list">
+                  <li>Nomor telepon / WhatsApp</li>
+                  <li>Alamat email pribadi</li>
+                  <li>Kontak orang tua</li>
+                </ul>
+              </div>
+              <div class="cat-item-card">
+                <div class="cat-icon">🔐</div>
+                <h4>Data Akun</h4>
+                <ul class="cat-list">
+                  <li>Username login</li>
+                  <li>Kata sandi (Password)</li>
+                  <li>Kode OTP rahasia</li>
+                  <li>PIN kunci layar gawai</li>
+                </ul>
+              </div>
+              <div class="cat-item-card">
+                <div class="cat-icon">📷</div>
+                <h4>Data Pribadi Lain</h4>
+                <ul class="cat-list">
+                  <li>Foto/video pribadi</li>
+                  <li>Lokasi tempat tinggal saat ini</li>
+                  <li>Dokumen rapor & kartu pelajar</li>
+                </ul>
+              </div>
+            </div>
+
+            <div style="background: #fee2e2; border: 1px solid #fca5a5; padding: 1rem; border-radius: var(--radius-md); margin: 1.25rem 0;">
+              <strong style="color: #b91c1c; font-size: 1rem;">🚨 ATURAN EMAS:</strong>
+              <p style="color: #7f1d1d; font-size: 0.92rem; margin-top: 0.25rem; font-weight: 700;">
+                Jangan sembarangan membagikan data pribadi kepada orang lain, di kolom komentar, atau di internet!
+              </p>
+            </div>
+
+            <div style="text-align: center; margin-top: 1rem;">
+              <button class="btn btn-secondary" onclick="navigateTo('aktivitas'); switchActivityTab(1);">
+                🎮 Coba Aktivitas 1: “Data Ini Aman Dibagikan atau Harus Dijaga?” ➔
+              </button>
+            </div>
+          </div>
+
+          <div class="module-footer-nav">
+            <div></div>
+            <button class="btn btn-primary" onclick="switchMateriTab(2)">
+              Lanjut ke Modul 2: Akun & Perangkat ➔
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= MODUL 2 ================= -->
+      <div class="materi-pane" id="materiPane2">
+        <div class="materi-card">
+          <div class="materi-header">
+            <span class="materi-letter">2</span>
+            <div>
+              <h3>Modul 2: Keamanan Akun & Perangkat</h3>
+              <p>Mempelajari cara membuat password yang aman, menjaga kode OTP, merawat keamanan gawai, dan mencadangkan data.</p>
+            </div>
+          </div>
+
+          <!-- D. PASSWORD YANG AMAN -->
+          <div class="submodule-section">
+            <h4 class="submodule-title">D. Password yang Aman</h4>
+            <p>
+              Password adalah gerbang pelindung utama akun email, media sosial, dan game online milikmu. Kata sandi yang baik memiliki ciri-ciri:
+            </p>
+            <ul style="padding-left: 1.25rem; font-size: 0.95rem; margin-bottom: 1rem;">
+              <li><strong>Tidak mudah ditebak:</strong> Jangan gunakan kata umum kamus.</li>
+              <li><strong>Tidak menggunakan nama sendiri:</strong> Hindari nama panggilan atau nama keluarga.</li>
+              <li><strong>Tidak menggunakan tanggal lahir:</strong> Sangat mudah dicari orang lain.</li>
+              <li><strong>Menggunakan kombinasi karakter:</strong> Gabungkan huruf besar, huruf kecil, angka, dan simbol (misal: <code>!</code>, <code>#</code>, <code>@</code>).</li>
+              <li><strong>Berbeda untuk akun yang berbeda:</strong> Jangan memakai satu password yang sama untuk semua akun.</li>
+              <li><strong>Tidak dibagikan kepada orang lain:</strong> Termasuk kepada sahabat karib di sekolah.</li>
+            </ul>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
+              <div style="background: var(--color-danger-bg); border: 1px solid var(--color-danger-border); padding: 1rem; border-radius: var(--radius-md);">
+                <strong style="color: var(--color-danger);">❌ Contoh Password Sangat Lemah & Bahaya:</strong>
+                <ul style="padding-left: 1.25rem; font-size: 0.88rem; margin-top: 0.35rem; font-family: monospace;">
+                  <li>123456 (Angka urut gampang ditebak)</li>
+                  <li>password (Kata umum kamus)</li>
+                  <li>budi2009 (Nama dan tahun lahir)</li>
+                </ul>
+              </div>
+              <div style="background: var(--color-success-bg); border: 1px solid var(--color-success-border); padding: 1rem; border-radius: var(--radius-md);">
+                <strong style="color: var(--color-success);">✅ Contoh Password Kuat & Aman:</strong>
+                <ul style="padding-left: 1.25rem; font-size: 0.88rem; margin-top: 0.35rem; font-family: monospace;">
+                  <li>Garuda#Terb4ng!88</li>
+                  <li>Informatika#9A!sukses</li>
+                  <li>Kucing$Lompat*77</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Simulator Kekuatan Password Fiktif -->
+            <div class="simulator-box">
+              <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.5rem;">
+                <strong>🧪 Simulator Kekuatan Password (Contoh Fiktif)</strong>
+                <span style="font-size: 0.78rem; color: var(--color-danger); font-weight: 800; background: #fee2e2; padding: 0.2rem 0.6rem; border-radius: var(--radius-sm);">
+                  ⚠️ JANGAN masukkan password aslimu ke sini!
+                </span>
+              </div>
+              <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 0.75rem;">
+                Uji contoh kata sandi di bawah untuk melihat penilaian kekuatan dan tips perbaikannya:
+              </p>
+              <div class="sim-presets">
+                <span style="font-size: 0.8rem; font-weight: 700;">Klik Preset Contoh:</span>
+                <button class="sim-preset-btn" onclick="testSimPassword('123456')">123456</button>
+                <button class="sim-preset-btn" onclick="testSimPassword('budi2009')">budi2009</button>
+                <button class="sim-preset-btn" onclick="testSimPassword('smpbisa2026')">smpbisa2026</button>
+                <button class="sim-preset-btn" onclick="testSimPassword('Bintang#M4lam!99')">Bintang#M4lam!99</button>
+              </div>
+              <div class="sim-input-wrap">
+                <input type="text" id="simPasswordInput" class="sim-input" placeholder="Ketik contoh kata sandi fiktif di sini..." oninput="evaluateSimPassword(this.value)">
+              </div>
+              <div class="strength-meter-wrap">
+                <div class="strength-bar-track">
+                  <div class="strength-bar-fill" id="simStrengthFill"></div>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span class="strength-label" id="simStrengthLabel">Tingkat Kekuatan: Belum diisi</span>
+                  <span id="simStrengthScore" style="font-size: 0.85rem; font-weight: 700; color: var(--color-text-muted);">0 / 100</span>
+                </div>
+                <div class="strength-feedback" id="simStrengthFeedback">
+                  Gunakan minimal 8-12 karakter dengan campuran huruf besar, kecil, angka, dan simbol unik.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- E. OTP DAN VERIFIKASI -->
+          <div class="submodule-section" style="margin-top: 2rem;">
+            <h4 class="submodule-title">E. OTP dan Verifikasi</h4>
+            <div class="quote-card" style="margin-bottom: 1rem;">
+              <p>
+                <strong>OTP (One-Time Password)</strong> adalah kode rahasia sekali pakai (biasanya 4 atau 6 digit angka) yang dikirimkan melalui SMS atau email untuk memverifikasi bahwa yang sedang login memang benar-benar pemilik akun.
+              </p>
+            </div>
+
+            <div style="background: #fee2e2; border: 2px solid #ef4444; border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 1.25rem;">
+              <div style="font-size: 1.1rem; font-weight: 800; color: #b91c1c; display: flex; align-items: center; gap: 0.5rem;">
+                <span>🚨</span> ATURAN MUTLAK: JANGAN PERNAH BAGIKAN KODE OTP!
+              </div>
+              <p style="font-size: 0.92rem; color: #7f1d1d; margin-top: 0.5rem;">
+                Kode OTP adalah rahasia pribadi tingkat tinggi. <strong>Jangan pernah memberikan kode OTP kepada siapa pun</strong>, meskipun orang tersebut mengaku sebagai customer service aplikasi, polisi, panitia hadiah, atau bahkan teman sendiri! Pihak resmi tidak pernah meminta kode OTP.
+              </p>
+            </div>
+
+            <!-- Studi Kasus Interaktif OTP -->
+            <div class="case-card">
+              <div class="case-question">
+                💡 <strong>Studi Kasus Siswa:</strong> “Seseorang menghubungi kamu lewat WhatsApp atau telepon dan meminta kode OTP yang baru saja masuk ke ponselmu karena ia mengaku dari petugas aplikasi game resmi untuk verifikasi hadiah.” Apa yang harus kamu lakukan?
+              </div>
+              <div class="case-options" id="caseOtpOptions">
+                <button class="case-btn" onclick="checkCaseOtp(this, 'A')">A. Memberikan OTP agar segera mendapatkan hadiah.</button>
+                <button class="case-btn" onclick="checkCaseOtp(this, 'B')">B. Mengirimkan foto screenshot pesan SMS berisi OTP.</button>
+                <button class="case-btn" onclick="checkCaseOtp(this, 'C')">C. Tidak memberikan OTP dan memeriksa melalui layanan resmi aplikasi.</button>
+                <button class="case-btn" onclick="checkCaseOtp(this, 'D')">D. Meminta teman memberikan OTP miliknya.</button>
+              </div>
+              <div class="case-explanation" id="caseOtpExplanation"></div>
+            </div>
+          </div>
+
+          <!-- J. KEAMANAN PERANGKAT -->
+          <div class="submodule-section" style="margin-top: 2rem;">
+            <h4 class="submodule-title">J. Keamanan Perangkat (Gawai)</h4>
+            <p>
+              Smartphone, tablet, dan laptop adalah pintu masuk ke akun-akun digitalmu. Biasakan 5 langkah sederhana berikut untuk menjaga fisik dan sistem perangkat:
+            </p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0.85rem; margin-top: 0.75rem;">
+              <div class="concept-card" style="padding: 1rem;">
+                <div style="font-size: 1.5rem;">🔒</div>
+                <h4 style="margin: 0.25rem 0;">1. Kunci Perangkat</h4>
+                <p style="font-size: 0.85rem;">Gunakan PIN, password, pola, atau sidik jari agar gawai tidak dibuka orang lain saat ditinggal.</p>
+              </div>
+              <div class="concept-card" style="padding: 1rem;">
+                <div style="font-size: 1.5rem;">🔄</div>
+                <h4 style="margin: 0.25rem 0;">2. Perbarui Sistem</h4>
+                <p style="font-size: 0.85rem;">Rutin lakukan update sistem operasi (Android/Windows) dan aplikasi untuk menutup celah keamanan.</p>
+              </div>
+              <div class="concept-card" style="padding: 1rem;">
+                <div style="font-size: 1.5rem;">📥</div>
+                <h4 style="margin: 0.25rem 0;">3. Hati-Hati Mengunduh</h4>
+                <p style="font-size: 0.85rem;">Hanya pasang aplikasi dari toko resmi (Play Store / App Store), hindari file bajakan gratis.</p>
+              </div>
+              <div class="concept-card" style="padding: 1rem;">
+                <div style="font-size: 1.5rem;">🧹</div>
+                <h4 style="margin: 0.25rem 0;">4. Hapus File Mencurigakan</h4>
+                <p style="font-size: 0.85rem;">Jangan pernah membuka file tidak dikenal di folder download atau chat asing.</p>
+              </div>
+              <div class="concept-card" style="padding: 1rem;">
+                <div style="font-size: 1.5rem;">👤</div>
+                <h4 style="margin: 0.25rem 0;">5. Jangan Sembarangan Pinjamkan Akun</h4>
+                <p style="font-size: 0.85rem;">Akun belajar dan medsos adalah milik pribadi, jangan login di perangkat orang lain tanpa logout.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- K. BACKUP DATA -->
+          <div class="submodule-section" style="margin-top: 2rem;">
+            <h4 class="submodule-title">K. Backup Data (Pencadangan Berkas)</h4>
+            <div class="quote-card" style="margin-bottom: 1rem;">
+              <p>
+                <strong>Backup</strong> adalah kegiatan membuat salinan data penting di tempat penyimpanan lain untuk mengurangi risiko kehilangan jika perangkat utama rusak atau hilang.
+              </p>
+            </div>
+
+            <p style="font-size: 0.95rem;">
+              <strong>Contoh Kasus Siswa:</strong> Bayangkan kamu sudah mengetik tugas makalah Informatika selama 2 minggu di laptop. Tiba-tiba laptop tersiram air atau terserang virus hingga mati total. Jika kamu <strong>tidak memiliki salinan</strong>, tugasmu akan hilang lenyap. Namun jika kamu <strong>memiliki salinan backup</strong>, tugas tersebut langsung bisa dipulihkan dalam 2 menit!
+            </p>
+
+            <div class="backup-diagram-box">
+              <strong style="color: var(--color-primary-navy);">Diagram Alur Backup Penyelamat Data:</strong>
+              <div class="backup-diagram-flow">
+                <div class="backup-diagram-step">
+                  <span style="font-size: 1.5rem;">📄</span>
+                  <strong style="font-size: 0.85rem;">Tugas Makalah</strong>
+                  <span style="font-size: 0.75rem; color: var(--color-text-muted);">Disimpan di Laptop 💻</span>
+                </div>
+                <span style="font-size: 1.5rem; font-weight: 800; color: var(--color-primary-blue);">+ SALINAN BACKUP ➔</span>
+                <div class="backup-diagram-step">
+                  <span style="font-size: 1.5rem;">☁️ / 💾</span>
+                  <strong style="font-size: 0.85rem;">Google Drive / Flashdisk</strong>
+                  <span style="font-size: 0.75rem; color: var(--color-success); font-weight: 700;">Data Selalu Aman Terjaga!</span>
+                </div>
+              </div>
+            </div>
+
+            <p style="font-size: 0.9rem; font-weight: 700;">Tiga Media Backup yang Biasa Digunakan Pelajar:</p>
+            <ul style="padding-left: 1.25rem; font-size: 0.9rem;">
+              <li><strong>💾 Flashdisk:</strong> Praktis, mudah dibawa ke sekolah, cocok untuk salinan cepat tugas harian.</li>
+              <li><strong>🗄️ Hard Disk Eksternal:</strong> Kapasitas besar, cocok untuk mencadangkan seluruh foto kenangan keluarga.</li>
+              <li><strong>☁️ Penyimpanan Cloud (Google Drive / OneDrive):</strong> Disimpan di internet, bisa dibuka dari smartphone maupun laptop kapan saja.</li>
+            </ul>
+          </div>
+
+          <div class="module-footer-nav">
+            <button class="btn btn-secondary" onclick="switchMateriTab(1)">
+              ⬅️ Kembali ke Modul 1
+            </button>
+            <button class="btn btn-primary" onclick="switchMateriTab(3)">
+              Lanjut ke Modul 3: Phishing & Malware ➔
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= MODUL 3 ================= -->
+      <div class="materi-pane" id="materiPane3">
+        <div class="materi-card">
+          <div class="materi-header">
+            <span class="materi-letter">3</span>
+            <div>
+              <h3>Modul 3: Waspada Phishing & Malware</h3>
+              <p>Mengenali tipuan pancingan data rahasia dan jenis perangkat lunak berbahaya pada gawai.</p>
+            </div>
+          </div>
+
+          <!-- F. PHISHING -->
+          <div class="submodule-section">
+            <h4 class="submodule-title">F. Phishing (Umpan Penipuan)</h4>
+            <div class="quote-card" style="margin-bottom: 1rem;">
+              <p>
+                <strong>Phishing</strong> (berasal dari kata <em>fishing</em> atau memancing) adalah usaha menipu seseorang agar memberikan informasi penting seperti password, OTP, atau data pribadi melalui pesan, email, website, atau tautan palsu.
+              </p>
+            </div>
+
+            <div style="background: #fffbeb; border-left: 4px solid #f59e0b; padding: 1rem; border-radius: var(--radius-sm); margin-bottom: 1.25rem;">
+              <div style="font-weight: 800; color: #92400e; margin-bottom: 0.35rem;">📩 Contoh Pesan Phishing yang Sering Beredar:</div>
+              <p style="font-style: italic; font-size: 0.95rem; color: #1e293b;">
+                “SELAMAT! Nomor HP kamu terpilih mendapatkan hadiah uang tunai Rp 15 Juta. Klik link berikut: <u>http://hadiah-gebyar-2026.xyz/klaim</u> dan segera masukkan password emailmu untuk mencairkan hadiah!”
+              </p>
+            </div>
+
+            <h5 style="margin-bottom: 0.5rem; font-size: 1rem;">⚠️ 5 Ciri-ciri & Tanda Bahaya Pesan Phishing:</h5>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0.75rem; margin-bottom: 1.5rem;">
+              <div style="background: var(--color-bg); padding: 0.85rem; border-radius: var(--radius-sm); border: 1px solid var(--color-border); font-size: 0.88rem;">
+                ⚠️ <strong>1. Meminta Data Rahasia:</strong> Memaksa meminta password, PIN, atau kode OTP akunmu.
+              </div>
+              <div style="background: var(--color-bg); padding: 0.85rem; border-radius: var(--radius-sm); border: 1px solid var(--color-border); font-size: 0.88rem;">
+                ⚠️ <strong>2. Link Mencurigakan:</strong> Alamat situs aneh dan tidak lazim (misal domain .xyz, bukan domain resmi .com atau .go.id).
+              </div>
+              <div style="background: var(--color-bg); padding: 0.85rem; border-radius: var(--radius-sm); border: 1px solid var(--color-border); font-size: 0.88rem;">
+                ⚠️ <strong>3. Menggunakan Kata Mendesak:</strong> "Klaim dalam 10 menit atau akunmu akan diblokir selamanya!".
+              </div>
+              <div style="background: var(--color-bg); padding: 0.85rem; border-radius: var(--radius-sm); border: 1px solid var(--color-border); font-size: 0.88rem;">
+                ⚠️ <strong>4. Hadiah Tidak Masuk Akal:</strong> Tiba-tiba menang undian padahal tidak pernah mendaftar lomba apa pun.
+              </div>
+              <div style="background: var(--color-bg); padding: 0.85rem; border-radius: var(--radius-sm); border: 1px solid var(--color-border); font-size: 0.88rem;">
+                ⚠️ <strong>5. Mengaku Pihak Resmi:</strong> Mengaku sebagai customer service bank, admin game, atau operator seluler.
+              </div>
+            </div>
+
+            <div style="text-align: center;">
+              <button class="btn btn-secondary" onclick="navigateTo('aktivitas'); switchActivityTab(3);">
+                🔎 Coba Simulasi: “Mana Pesan yang Mencurigakan?” (Aktivitas 3) ➔
+              </button>
+            </div>
+          </div>
+
+          <!-- G. MALWARE DAN VIRUS -->
+          <div class="submodule-section" style="margin-top: 2rem;">
+            <h4 class="submodule-title">G. Malware dan Virus</h4>
+            <div class="quote-card" style="margin-bottom: 1rem;">
+              <p>
+                <strong>Malware</strong> (singkatan dari <em>Malicious Software</em>) adalah perangkat lunak berbahaya yang sengaja dibuat untuk mengganggu, merusak, atau melakukan tindakan yang tidak diinginkan pada perangkat digital.
+              </p>
+            </div>
+
+            <p style="font-size: 0.92rem;">Tiga Jenis Malware yang Paling Sering Ditemukan:</p>
+            <div class="cards-grid-3" style="margin-bottom: 1.25rem;">
+              <div class="concept-card" style="padding: 1.25rem; border-top: 3px solid var(--color-danger);">
+                <div style="font-size: 1.75rem;">🦠</div>
+                <h4 style="margin: 0.25rem 0;">1. Virus Komputer</h4>
+                <p style="font-size: 0.85rem;">Program perusak yang dapat mengganggu sistem, merusak file dokumen tugas, atau membuat laptop menjadi lemot dan hang.</p>
+              </div>
+              <div class="concept-card" style="padding: 1.25rem; border-top: 3px solid var(--color-warning);">
+                <div style="font-size: 1.75rem;">🕵️</div>
+                <h4 style="margin: 0.25rem 0;">2. Spyware (Mata-Mata)</h4>
+                <p style="font-size: 0.85rem;">Program mata-mata yang diam-diam mengumpulkan informasi pengguna tanpa izin, seperti merekam password yang kamu ketik.</p>
+              </div>
+              <div class="concept-card" style="padding: 1.25rem; border-top: 3px solid var(--color-purple);">
+                <div style="font-size: 1.75rem;">🔒</div>
+                <h4 style="margin: 0.25rem 0;">3. Ransomware</h4>
+                <p style="font-size: 0.85rem;">Program jahat yang mengunci atau mengenkripsi data penting sehingga korban tidak bisa membukanya, lalu memeras korban meminta uang tebusan.</p>
+              </div>
+            </div>
+
+            <div style="background: var(--color-success-bg); border: 1px solid var(--color-success-border); padding: 1rem; border-radius: var(--radius-md);">
+              <h5 style="color: #065f46; font-size: 0.95rem; margin-bottom: 0.35rem;">🛡️ 5 Kebiasaan Sederhana Mencegah Malware:</h5>
+              <ul style="padding-left: 1.25rem; font-size: 0.88rem; color: #047857;">
+                <li>Jangan sembarangan mengunduh file dari situs bajakan atau internet.</li>
+                <li>Gunakan dan unduh aplikasi hanya dari sumber resmi dan terpercaya.</li>
+                <li>Perbarui sistem operasi dan aplikasi secara berkala.</li>
+                <li>Gunakan perlindungan keamanan (antivirus bawaan) pada perangkat.</li>
+                <li>Jangan membuka file lampiran asing berakhiran <code>.apk</code> atau <code>.exe</code> di chat grup.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="module-footer-nav">
+            <button class="btn btn-secondary" onclick="switchMateriTab(2)">
+              ⬅️ Kembali ke Modul 2
+            </button>
+            <button class="btn btn-primary" onclick="switchMateriTab(4)">
+              Lanjut ke Modul 4: Privasi & Jejak Digital ➔
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= MODUL 4 ================= -->
+      <div class="materi-pane" id="materiPane4">
+        <div class="materi-card">
+          <div class="materi-header">
+            <span class="materi-letter">4</span>
+            <div>
+              <h3>Modul 4: Privasi, Jejak Digital, & 10 Aturan Emas</h3>
+              <p>Membiasakan etika berinternet yang santun, memahami rekam jejak digital, dan pedoman keamanan.</p>
+            </div>
+          </div>
+
+          <!-- H. PRIVASI DI INTERNET -->
+          <div class="submodule-section">
+            <h4 class="submodule-title">H. Privasi di Internet</h4>
+            <div class="quote-card" style="margin-bottom: 1rem;">
+              <p>
+                <strong>Privasi</strong> adalah hak setiap orang untuk menjaga informasi pribadinya agar tidak digunakan, dikumpulkan, atau disebarkan sembarangan tanpa izin.
+              </p>
+            </div>
+
+            <p style="font-weight: 700; margin-bottom: 0.5rem;">Contoh Tindakan yang Mengganggu Privasi (Tidak Boleh Dilakukan):</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0.75rem; margin-bottom: 1.25rem;">
+              <div style="background: var(--color-danger-bg); border: 1px solid var(--color-danger-border); padding: 0.85rem; border-radius: var(--radius-sm); font-size: 0.88rem; color: #991b1b;">
+                ❌ <strong>Mengunggah Foto Teman Tanpa Izin:</strong> Memotret teman saat mengantuk atau berpose aib lalu mengunggahnya ke story.
+              </div>
+              <div style="background: var(--color-danger-bg); border: 1px solid var(--color-danger-border); padding: 0.85rem; border-radius: var(--radius-sm); font-size: 0.88rem; color: #991b1b;">
+                ❌ <strong>Membagikan Alamat Rumah Teman:</strong> Menyebarkan denah rumah atau lokasi teman kepada orang asing di internet.
+              </div>
+              <div style="background: var(--color-danger-bg); border: 1px solid var(--color-danger-border); padding: 0.85rem; border-radius: var(--radius-sm); font-size: 0.88rem; color: #991b1b;">
+                ❌ <strong>Membagikan Screenshot Percakapan Pribadi:</strong> Mengunggah tangkapan layar chat curhat rahasia ke grup sekolah.
+              </div>
+              <div style="background: var(--color-danger-bg); border: 1px solid var(--color-danger-border); padding: 0.85rem; border-radius: var(--radius-sm); font-size: 0.88rem; color: #991b1b;">
+                ❌ <strong>Menyebarkan Nomor Telepon Seseorang:</strong> Membagikan nomor WhatsApp teman tanpa persetujuan yang bersangkutan.
+              </div>
+            </div>
+
+            <div style="background: var(--color-success-bg); border: 1px solid var(--color-success-border); padding: 0.85rem 1rem; border-radius: var(--radius-md); font-size: 0.92rem; color: #047857; margin-bottom: 1rem;">
+              ✅ <strong>Tindakan yang Benar:</strong> Selalu <strong>meminta izin terlebih dahulu</strong> sebelum membagikan foto, video, atau informasi orang lain! Jika temanmu tidak bersedia, hormati keputusannya.
+            </div>
+
+            <div style="text-align: center;">
+              <button class="btn btn-secondary" onclick="navigateTo('aktivitas'); switchActivityTab(4);">
+                ⚖️ Coba Aktivitas 4: “Boleh atau Tidak?” ➔
+              </button>
+            </div>
+          </div>
+
+          <!-- I. JEJAK DIGITAL -->
+          <div class="submodule-section" style="margin-top: 2rem;">
+            <h4 class="submodule-title">I. Jejak Digital (Digital Footprint)</h4>
+            <div class="quote-card" style="margin-bottom: 1rem;">
+              <p>
+                <strong>Jejak Digital</strong> adalah rekam atau riwayat seluruh aktivitas seseorang ketika menggunakan internet dan layanan digital.
+              </p>
+              <div style="font-size: 0.88rem; color: var(--color-text-muted); margin-top: 0.35rem;">
+                <strong>Contoh Jejak Digital:</strong> Komentar di media sosial, foto yang diunggah, video, status WhatsApp, dan riwayat penelusuran.
+              </div>
+            </div>
+
+            <div style="background: #fffbeb; border: 1px solid #fde68a; border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 1.25rem;">
+              <strong style="color: #92400e; font-size: 1rem;">⚠️ INGAT SELALU:</strong>
+              <p style="font-size: 0.95rem; color: #78350f; margin-top: 0.35rem;">
+                <strong>Pikirkan sebelum memposting sesuatu!</strong> Karena apa pun yang sudah dibagikan di internet dapat sangat sulit dikendalikan penyebarannya. Orang lain bisa menyimpannya melalui tangkapan layar (screenshot) meski sudah kamu hapus.
+              </p>
+              <div style="background: #ffffff; padding: 0.85rem 1rem; border-radius: var(--radius-sm); border-left: 4px solid #f59e0b; margin-top: 0.85rem; font-weight: 700; color: #1e293b;">
+                💭 Pertanyaan Reflektif Siswa: <br>
+                <em>“Apakah saya akan tetap merasa nyaman jika postingan atau komentar ini dilihat oleh guru, orang tua, atau teman-temanku di masa depan?”</em>
+              </div>
+            </div>
+          </div>
+
+          <!-- L. 10 ATURAN EMAS -->
+          <div class="submodule-section" style="margin-top: 2rem;">
+            <h4 class="submodule-title">L. Keamanan Saat Menggunakan Internet (10 Aturan Emas)</h4>
+            <p>
+              Gunakan 10 aturan emas berikut sebagai panduan sehari-hari saat menggunakan smartphone dan berinternet:
+            </p>
+
+            <div class="golden-poster-grid" style="margin-top: 1rem;">
+              <div class="golden-poster-card">
+                <div class="poster-num">1</div>
+                <div class="poster-content">
+                  <h4>Gunakan Password Kuat</h4>
+                  <p>Kombinasikan huruf besar, kecil, angka, dan simbol unik.</p>
+                </div>
+              </div>
+              <div class="golden-poster-card">
+                <div class="poster-num">2</div>
+                <div class="poster-content">
+                  <h4>Jangan Bagikan Password</h4>
+                  <p>Kunci rahasia akunmu, jangan berikan kepada sahabat sekalipun.</p>
+                </div>
+              </div>
+              <div class="golden-poster-card">
+                <div class="poster-num">3</div>
+                <div class="poster-content">
+                  <h4>Jangan Bagikan OTP</h4>
+                  <p>Kode sekali pakai adalah rahasia mutlak pemilik akun.</p>
+                </div>
+              </div>
+              <div class="golden-poster-card">
+                <div class="poster-num">4</div>
+                <div class="poster-content">
+                  <h4>Waspadai Phishing</h4>
+                  <p>Kenali pesan iming-iming hadiah dan ancaman palsu.</p>
+                </div>
+              </div>
+              <div class="golden-poster-card">
+                <div class="poster-num">5</div>
+                <div class="poster-content">
+                  <h4>Periksa Link Sebelum Klik</h4>
+                  <p>Cek alamat situs apakah resmi atau jebakan (.xyz, .tk).</p>
+                </div>
+              </div>
+              <div class="golden-poster-card">
+                <div class="poster-num">6</div>
+                <div class="poster-content">
+                  <h4>Lindungi Data Pribadi</h4>
+                  <p>Jangan posting alamat rumah, nomor kontak, atau kartu keluarga.</p>
+                </div>
+              </div>
+              <div class="golden-poster-card">
+                <div class="poster-num">7</div>
+                <div class="poster-content">
+                  <h4>Minta Izin Foto Orang Lain</h4>
+                  <p>Hormati hak privasi teman sebelum memposting foto dirinya.</p>
+                </div>
+              </div>
+              <div class="golden-poster-card">
+                <div class="poster-num">8</div>
+                <div class="poster-content">
+                  <h4>Selalu Perbarui Perangkat</h4>
+                  <p>Rutin update sistem operasi dan aplikasi untuk menutup celah.</p>
+                </div>
+              </div>
+              <div class="golden-poster-card">
+                <div class="poster-num">9</div>
+                <div class="poster-content">
+                  <h4>Lakukan Backup Data</h4>
+                  <p>Salin tugas sekolah penting ke Google Drive atau flashdisk.</p>
+                </div>
+              </div>
+              <div class="golden-poster-card">
+                <div class="poster-num">10</div>
+                <div class="poster-content">
+                  <h4>Pikirkan Sebelum Posting</h4>
+                  <p>Jaga nama baik diri sendiri dan bangun jejak digital positif.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="module-footer-nav">
+            <button class="btn btn-secondary" onclick="switchMateriTab(3)">
+              ⬅️ Kembali ke Modul 3
+            </button>
+            <button class="btn btn-primary" onclick="navigateTo('ancaman')">
+              Lanjut ke Menu “Kenali Ancaman” ➔
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- 3. MENU KENALI ANCAMAN (8 KARTU INTERAKTIF)    -->
+    <!-- ============================================== -->
+    <section id="ancaman" class="content-section">
+      <div class="section-heading">
+        <div class="badge-tag">WASPADA KEJAHATAN DIGITAL</div>
+        <h2>Kenali 8 Ancaman Terhadap Data</h2>
+        <p>Klik salah satu kartu di bawah untuk mempelajari pengertian, contoh kasus nyata di kalangan siswa SMP, ciri-ciri, dan cara mencegahnya.</p>
+      </div>
+
+      <div class="threats-grid" id="threatsGridContainer">
+        <!-- 8 Kartu akan dirender secara dinamis oleh script.js -->
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- 4. MENU AKTIVITAS INTERAKTIF & MINI-GAME       -->
+    <!-- ============================================== -->
+        <!-- ============================================== -->
+    <!-- 4. MENU AKTIVITAS INTERAKTIF                     -->
+    <!-- ============================================== -->
+    <section id="aktivitas" class="content-section">
+      <div class="section-heading">
+        <div class="badge-tag">ZONA INTERAKTIF KELAS</div>
+        <h2>🎮 Aktivitas Pembelajaran Interaktif</h2>
+        <p>Aktivitas interaktif seru: Urutkan alur tanggap darurat, jodohkan istilah siber, analisis audit keamanan HOTS, duel memori Clash of Champions (COC), dan Battle Regu Kelas!</p>
+      </div>
+
+      <!-- TAB PILIHAN AKTIVITAS DI DALAM MENU AKTIVITAS (5 AKTIVITAS) -->
+      <div class="activity-nav-tabs">
+        <button class="act-tab active" data-act="1" onclick="selectActivityTab(1)">
+          <span>🧩 Aktivitas 1: Urutkan Alur Darurat</span>
+        </button>
+        <button class="act-tab" data-act="2" onclick="selectActivityTab(2)">
+          <span>🔗 Aktivitas 2: Jodohkan Istilah</span>
+        </button>
+        <button class="act-tab" data-act="3" onclick="selectActivityTab(3)">
+          <span>📊 Aktivitas 3: Audit Keamanan HOTS</span>
+        </button>
+        <button class="act-tab act-tab-highlight" data-act="4" onclick="selectActivityTab(4)">
+          <span>⚡ Aktivitas 4: Clash of Champions (COC)</span>
+        </button>
+        <button class="act-tab act-tab-battle" data-act="5" onclick="selectActivityTab(5)">
+          <span>🔥 Aktivitas 5: Battle Regu Kelas</span>
+        </button>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- AKTIVITAS 1: URUTKAN ALUR TANGGAP DARURAT AKUN -->
+      <!-- ============================================== -->
+      <div class="activity-section-block active" id="actBlock1">
+        <div class="activity-main-card">
+          <div class="act-header">
+            <div>
+              <h3>🧩 Aktivitas 1 — Urutkan Alur Tanggap Darurat Akun</h3>
+              <p>Susun 6 langkah darurat ketika akunmu dicurigai dibobol atau terancam siber dengan cara menyeret (drag & drop) atau klik tombol panah (⬆/⬇) agar urutannya runut dan tepat dari langkah 1 sampai 6.</p>
+            </div>
+            <div class="act-header-actions">
+              <button class="btn-how-to-play" onclick="showHowToPlay(1)" title="Petunjuk Cara Bermain Aktivitas 1">📖 Cara Bermain</button>
+              <div class="act-badge" id="act1BadgeStatus">Skor: - / 100</div>
+            </div>
+          </div>
+
+          <!-- DRAGGABLE LIST -->
+          <div class="drag-list" id="dragList">
+            <!-- Kartu dibuat dinamis oleh script.js -->
+          </div>
+
+          <!-- FEEDBACK -->
+          <div class="feedback-alert" id="act1Alert" style="display:none;"></div>
+
+          <!-- ACTION BUTTONS -->
+          <div class="act-controls">
+            <button class="btn btn-primary" onclick="checkActivity1()">
+              <span>Periksa Jawaban</span>
+            </button>
+            <button class="btn btn-outline" onclick="resetActivity1()">
+              <span>Ulangi</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- AKTIVITAS 2: JODOHKAN ISTILAH KEAMANAN DATA -->
+      <!-- ============================================== -->
+      <div class="activity-section-block" id="actBlock2">
+        <div class="activity-main-card">
+          <div class="act-header">
+            <div>
+              <h3>🔗 Aktivitas 2 — Jodohkan Istilah Keamanan Data</h3>
+              <p>Petunjuk: Klik salah satu kartu istilah siber di sisi kiri, kemudian klik kartu fungsi/pengertian yang cocok di sisi kanan.</p>
+            </div>
+            <div class="act-header-actions">
+              <button class="btn-how-to-play" onclick="showHowToPlay(2)" title="Petunjuk Cara Bermain Aktivitas 2">📖 Cara Bermain</button>
+              <div class="act-badge" id="act2PairCount">Pasangan Benar: 0 / 5</div>
+            </div>
+          </div>
+
+          <!-- DUA SISI MENJODOHKAN -->
+          <div class="matching-area">
+            <div class="match-side">
+              <h4 class="match-col-title">Sisi Kiri: Istilah Keamanan</h4>
+              <div class="match-cards" id="matchLeftContainer">
+                <!-- Generated by script.js -->
+              </div>
+            </div>
+
+            <div class="match-side">
+              <h4 class="match-col-title">Sisi Kanan: Pengertian & Fungsi</h4>
+              <div class="match-cards" id="matchRightContainer">
+                <!-- Generated by script.js -->
+              </div>
+            </div>
+          </div>
+
+          <!-- FEEDBACK -->
+          <div class="feedback-alert" id="act2Alert" style="display:none;"></div>
+
+          <!-- ACTIONS -->
+          <div class="act-controls">
+            <button class="btn btn-primary" onclick="checkActivity2()">
+              <span>Periksa</span>
+            </button>
+            <button class="btn btn-outline" onclick="resetActivity2()">
+              <span>Ulangi Aktivitas</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- AKTIVITAS 3: AUDIT KEAMANAN AKUN SISWA (HOTS) -->
+      <!-- ============================================== -->
+      <div class="activity-section-block" id="actBlock3">
+        <div class="activity-main-card">
+          <div class="act-header">
+            <div>
+              <div class="hots-banner-tag">🔥 SOAL HOTS (Higher Order Thinking Skills)</div>
+              <h3>📊 Aktivitas 3 — Analisis & Evaluasi Audit Keamanan Akun</h3>
+              <p>Cermati tabel hasil audit digital 5 kelas dan grafik perbandingan di bawah ini secara kritis untuk memecahkan 3 tantangan analitis tingkat tinggi (analisis disparitas kerentanan, komparasi proporsi keamanan, & pengambilan keputusan solutif)!</p>
+            </div>
+            <div class="act-header-actions">
+              <button class="btn-how-to-play" onclick="showHowToPlay(3)" title="Petunjuk Cara Bermain Aktivitas 3">📖 Cara Bermain</button>
+              <div class="act-badge" id="act3BadgeScore">Skor: 0 / 3</div>
+            </div>
+          </div>
+
+          <!-- TABEL DAN GRAFIK -->
+          <div class="graph-data-layout">
+            <!-- Tabel Data Audit -->
+            <div class="data-table-wrapper">
+              <h4>📋 Tabel Audit Keamanan Akun Siswa (5 Kelas)</h4>
+              <table class="simple-table">
+                <thead>
+                  <tr>
+                    <th>Kelas</th>
+                    <th>Total Siswa</th>
+                    <th>Password Kuat</th>
+                    <th>Pernah Klik Phishing</th>
+                    <th>Rutin Backup</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>8A</td><td>30</td><td>12</td><td>18</td><td>8</td></tr>
+                  <tr class="row-highlight"><td><strong>8B</strong></td><td>32</td><td><strong>26</strong></td><td>5</td><td><strong>22</strong></td></tr>
+                  <tr class="row-highlight-girl"><td><strong>8C</strong></td><td>28</td><td>8</td><td><strong>20</strong></td><td>6</td></tr>
+                  <tr><td>9A</td><td>30</td><td>24</td><td>7</td><td>18</td></tr>
+                  <tr><td>9B</td><td>30</td><td>15</td><td>15</td><td>12</td></tr>
+                </tbody>
+              </table>
+              <p class="table-caption">*Perhatikan perbandingan siswa ber-password kuat vs pernah klik phishing di tiap kelas.</p>
+            </div>
+
+            <!-- Canvas Grafik Bar Vanilla Interaktif -->
+            <div class="graph-chart-wrapper">
+              <h4>📈 Diagram Perbandingan Keamanan Akun Antar-Kelas</h4>
+              <div class="chart-box-container">
+                <canvas id="chartAct3" width="460" height="260"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3 PERTANYAAN ANALISIS HOTS -->
+          <div class="questions-panel">
+            <!-- Pertanyaan 1 HOTS -->
+            <div class="q-item hots-q-item" id="act3Q1Card">
+              <div class="q-text-header">
+                <span class="q-number-bubble">1</span>
+                <div>
+                  <span class="q-hots-category">Level C4: Analisis Kesenjangan Kerentanan Siber</span>
+                  <p>Berdasarkan tabel dan grafik audit, kelas manakah yang berada pada <strong>posisi paling rentan (rawan bahaya pembajakan akun)</strong> karena memiliki defisit kerentanan paling parah antara siswa ber-password kuat dibanding yang ceroboh mengklik phishing?</p>
+                </div>
+              </div>
+              <div class="q-choices hots-choices">
+                <button class="btn-choice" onclick="chooseAct3(1, 'A', this)">
+                  <strong>A. Kelas 8A</strong> — Selisih 6 siswa (12 Password Kuat vs 18 Klik Phishing)
+                </button>
+                <button class="btn-choice" onclick="chooseAct3(1, 'B', this)">
+                  <strong>B. Kelas 9B</strong> — Seimbang 15 siswa Password Kuat vs 15 siswa Klik Phishing
+                </button>
+                <button class="btn-choice" onclick="chooseAct3(1, 'C', this)">
+                  <strong>C. Kelas 8C</strong> — Defisit 12 siswa (hanya 8 ber-password kuat, sementara 20 siswa pernah mengklik link phishing)
+                </button>
+                <button class="btn-choice" onclick="chooseAct3(1, 'D', this)">
+                  <strong>D. Kelas 8B</strong> — Surplus keamanan 21 siswa (26 ber-password kuat vs 5 klik phishing)
+                </button>
+              </div>
+              <div class="q-status-msg" id="act3Msg1" style="display:none;"></div>
+            </div>
+
+            <!-- Pertanyaan 2 HOTS -->
+            <div class="q-item hots-q-item" id="act3Q2Card">
+              <div class="q-text-header">
+                <span class="q-number-bubble">2</span>
+                <div>
+                  <span class="q-hots-category">Level C4/C5: Komparasi Proporsi & Rasio Budaya Keamanan</span>
+                  <p>Jika sekolah ingin menetapkan kelas teladan literasi siber dengan membandingkan <strong>Kelas 8B (32 siswa)</strong> dan <strong>Kelas 9A (30 siswa)</strong>, kesimpulan analitis manakah yang paling valid dan akurat berdasarkan proporsi persentase?</p>
+                </div>
+              </div>
+              <div class="q-choices hots-choices">
+                <button class="btn-choice" onclick="chooseAct3(2, 'A', this)">
+                  <strong>A. Kelas 8B lebih unggul</strong> secara proporsi karena 26 dari 32 siswa (<strong>81,25%</strong>) menggunakan password kuat dan <strong>68,75%</strong> rutin backup, melampaui Kelas 9A (80,0% dan 60,0%).
+                </button>
+                <button class="btn-choice" onclick="chooseAct3(2, 'B', this)">
+                  <strong>B. Kelas 9A lebih unggul</strong> karena jumlah total siswanya lebih sedikit sehingga pasti lebih mudah diatur.
+                </button>
+                <button class="btn-choice" onclick="chooseAct3(2, 'C', this)">
+                  <strong>C. Kedua kelas</strong> memiliki persentase kerentanan phishing yang sama persis yaitu 50%.
+                </button>
+                <button class="btn-choice" onclick="chooseAct3(2, 'D', this)">
+                  <strong>D. Data tabel</strong> tidak cukup untuk mengukur perbandingan persentase kedua kelas.
+                </button>
+              </div>
+              <div class="q-status-msg" id="act3Msg2" style="display:none;"></div>
+            </div>
+
+            <!-- Pertanyaan 3 HOTS -->
+            <div class="q-item hots-q-item" id="act3Q3Card">
+              <div class="q-text-header">
+                <span class="q-number-bubble">3</span>
+                <div>
+                  <span class="q-hots-category">Level C5/C6: Evaluasi & Pengambilan Keputusan Solutif</span>
+                  <p>Guru Informatika mendapat mandat mengadakan workshop intensif penanganan bahaya siber untuk 1 kelas paling darurat, serta ingin menggerakkan tutor sebaya (peer mentor). <strong>Keputusan berbasis data apa yang paling efektif dan bijak</strong>?</p>
+                </div>
+              </div>
+              <div class="q-choices hots-choices">
+                <button class="btn-choice" onclick="chooseAct3(3, 'A', this)">
+                  <strong>A. Memprioritaskan workshop untuk Kelas 8C</strong> (kelas paling rentan) dan menunjuk perwakilan siswa dari <strong>Kelas 8B</strong> sebagai tutor sebaya pendamping karena memiliki skor keamanan dan backup tertinggi.
+                </button>
+                <button class="btn-choice" onclick="chooseAct3(3, 'B', this)">
+                  <strong>B. Menghapus akun semua siswa Kelas 8C</strong> agar tidak bisa lagi mengakses internet sekolah.
+                </button>
+                <button class="btn-choice" onclick="chooseAct3(3, 'C', this)">
+                  <strong>C. Memberikan pelatihan hanya untuk Kelas 8B</strong> karena kelas yang pintar saja yang berhak mendapat fasilitas.
+                </button>
+                <button class="btn-choice" onclick="chooseAct3(3, 'D', this)">
+                  <strong>D. Melarang siswa 8A membawa gawai</strong> tanpa memberikan edukasi cara membuat password dan mendeteksi phishing.
+                </button>
+              </div>
+              <div class="q-status-msg" id="act3Msg3" style="display:none;"></div>
+            </div>
+          </div>
+
+          <div class="act-controls">
+            <button class="btn btn-outline" onclick="resetActivity3()">
+              <span>🔄 Reset Jawaban Pertanyaan HOTS</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- AKTIVITAS 4: CLASH OF CHAMPIONS (COC RUANG GURU) -->
+      <!-- ============================================== -->
+      <div class="activity-section-block" id="actBlock4">
+        <div class="activity-main-card coc-arena-card">
+          <!-- Banner Clash of Champions -->
+          <div class="coc-banner-head">
+            <div class="coc-top-row">
+              <div class="coc-badge-live">⚡ ARENA CLASH OF CHAMPIONS</div>
+              <button class="btn-how-to-play" onclick="showHowToPlay(4)" title="Petunjuk Cara Bermain Aktivitas 4">📖 Cara Bermain</button>
+            </div>
+            <h3 class="coc-title">Cyber Memory Battle: Tantangan Memori Juara Digital</h3>
+            <p class="coc-subtitle">Terinspirasi dari game show <em>Clash of Champions</em>! Uji ketajaman ingatan visualmu: hafalkan letak kartu konsep keamanan siber, lalu buka pasangannya secepat kilat untuk meraih predikat <strong>GRAND CHAMPION</strong>!</p>
+          </div>
+
+          <!-- DASHBOARD STATISTIK LIVE COC -->
+          <div class="coc-dashboard">
+            <div class="coc-stat-box">
+              <span class="coc-stat-label">⏱️ STOPWATCH</span>
+              <span class="coc-stat-value timer-glow" id="cocTimerText">00:00.0</span>
+            </div>
+            <div class="coc-stat-box">
+              <span class="coc-stat-label">🎯 LANGKAH</span>
+              <span class="coc-stat-value" id="cocMovesText">0</span>
+            </div>
+            <div class="coc-stat-box">
+              <span class="coc-stat-label">🔥 COMBO</span>
+              <span class="coc-stat-value streak-glow" id="cocStreakText">x0</span>
+            </div>
+            <div class="coc-stat-box">
+              <span class="coc-stat-label">👑 REKOR TERBAIK</span>
+              <span class="coc-stat-value best-glow" id="cocBestText">-</span>
+            </div>
+            <div class="coc-stat-box coc-audio-toggle" onclick="toggleCocAudio()" title="Nyalakan/Matikan Efek Suara">
+              <span class="coc-stat-label">🔊 AUDIO SFX</span>
+              <span class="coc-stat-value" id="cocAudioStatus">ON</span>
+            </div>
+          </div>
+
+          <!-- NOTIFIKASI MEMORY FLASH COUNTDOWN (5 DETIK) -->
+          <div class="coc-countdown-banner" id="cocCountdownBanner" style="display:none;">
+            <div class="countdown-pulse" id="cocCountdownNumber">5</div>
+            <p id="cocCountdownLabel">HAFALKAN SELURUH KARTU SEBELUM DITUTUP! (5 DETIK)</p>
+          </div>
+
+          <!-- GRID 12 KARTU MEMORI (3D FLIP CARDS) -->
+          <div class="coc-grid-container" id="cocGridContainer">
+            <!-- Kartu akan dirender dinamis oleh script.js -->
+          </div>
+
+          <!-- OVERLAY KETIKA SELESAI MENANG (HASIL COC CHAMPION) -->
+          <div class="coc-victory-modal" id="cocVictoryModal" style="display:none;">
+            <div class="coc-victory-box">
+              <div class="coc-trophy-anim" id="cocTrophyIcon">🏆</div>
+              <h2 class="coc-victory-title">CHAMPION COMPLETE!</h2>
+              <div class="coc-rank-badge" id="cocRankBadge">GRAND CHAMPION 🏆</div>
+              <p class="coc-rank-desc" id="cocRankDesc">Kecepatan & ketajaman memorimu setara finalis Clash of Champions!</p>
+              
+              <div class="coc-finish-stats">
+                <div class="coc-fstat">
+                  <span>Waktu Tempuh:</span>
+                  <strong id="cocFinishTime">00:18.4</strong>
+                </div>
+                <div class="coc-fstat">
+                  <span>Total Langkah:</span>
+                  <strong id="cocFinishMoves">14 Kali</strong>
+                </div>
+                <div class="coc-fstat">
+                  <span>Max Combo:</span>
+                  <strong id="cocFinishCombo">x4 🔥</strong>
+                </div>
+              </div>
+
+              <div class="coc-modal-actions">
+                <button class="btn btn-primary" onclick="startCocGame()">
+                  <span>⚡ Main Lagi & Pecahkan Rekor</span>
+                </button>
+                <button class="btn btn-outline" onclick="selectActivityTab(3)">
+                  <span>📊 Kembali ke Audit HOTS</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- KONTROL ARENA COC -->
+          <div class="act-controls coc-controls">
+            <button class="btn btn-primary" id="btnStartCoc" onclick="startCocGame()">
+              <span>🚀 Mulai Battle Champion Baru</span>
+            </button>
+            <button class="btn btn-outline" onclick="resetCocBestRecord()">
+              <span>🗑️ Reset Rekor Terbaik</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- AKTIVITAS 5: BATTLE REGU KELAS (DUEL SIBER)    -->
+      <!-- ============================================== -->
+      <div class="activity-section-block" id="actBlock5">
+        <div class="activity-main-card battle-arena-card">
+          <!-- Banner Battle Regu -->
+          <div class="battle-banner-head">
+            <div class="battle-top-row">
+              <div class="battle-badge-live">🔥 MODE KOMPETISI MULTIPLAYER KELAS</div>
+              <button class="btn-how-to-play" onclick="showHowToPlay(5)" title="Petunjuk Cara Bermain Aktivitas 5">📖 Cara Bermain</button>
+            </div>
+            <h3 class="battle-title">🏆 Battle Regu Kelas: Duel Cerdas Cermat Keamanan Data</h3>
+            <p class="battle-subtitle">Dirancang khusus untuk dimainkan beramai-ramai oleh seluruh siswa di kelas dengan proyektor! Bagi kelas menjadi 2 hingga 6 regu, putar Roda Tantangan Siber, dan rebut poin tertinggi untuk menjadi Juara Kelas!</p>
+          </div>
+
+          <!-- SETUP TIM & PAPAN SKOR LIVE KELAS -->
+          <div class="battle-teams-wrapper">
+            <div class="battle-setup-bar">
+              <span class="setup-label">⚙️ Jumlah Regu:</span>
+              <div class="team-count-btns">
+                <button class="btn-team-count" id="btnTeam2" onclick="setTeamCount(2)">2 Regu</button>
+                <button class="btn-team-count" id="btnTeam3" onclick="setTeamCount(3)">3 Regu</button>
+                <button class="btn-team-count" id="btnTeam4" onclick="setTeamCount(4)">4 Regu</button>
+                <button class="btn-team-count" id="btnTeam5" onclick="setTeamCount(5)">5 Regu</button>
+                <button class="btn-team-count active" id="btnTeam6" onclick="setTeamCount(6)">6 Regu (Lengkap) 🏆</button>
+              </div>
+              <button class="btn btn-sm btn-outline btn-reset-scores" onclick="resetBattleScores()">🔄 Reset Skor</button>
+            </div>
+
+            <!-- 6 KARTU SKOR LIVE REGU KELAS -->
+            <div class="scoreboard-grid" id="scoreboardGrid">
+              <!-- Kartu Skor Tim Alpha (Biru) -->
+              <div class="team-score-card team-alpha" id="cardTeamAlpha">
+                <div class="team-head">
+                  <span class="team-icon">🦅</span>
+                  <div class="team-info">
+                    <h4 class="team-name" contenteditable="true" title="Klik untuk ubah nama regu">Regu Alpha</h4>
+                    <span class="team-color-badge">Tim Biru</span>
+                  </div>
+                </div>
+                <div class="team-score-val" id="scoreAlpha">0</div>
+                <div class="score-adjust-btns">
+                  <button class="btn-score add-100" onclick="adjustTeamScore('alpha', 100)">+100</button>
+                  <button class="btn-score add-50" onclick="adjustTeamScore('alpha', 50)">+50</button>
+                  <button class="btn-score sub-50" onclick="adjustTeamScore('alpha', -50)">-50</button>
+                </div>
+              </div>
+
+              <!-- Kartu Skor Tim Beta (Merah) -->
+              <div class="team-score-card team-beta" id="cardTeamBeta">
+                <div class="team-head">
+                  <span class="team-icon">🦁</span>
+                  <div class="team-info">
+                    <h4 class="team-name" contenteditable="true" title="Klik untuk ubah nama regu">Regu Beta</h4>
+                    <span class="team-color-badge">Tim Merah</span>
+                  </div>
+                </div>
+                <div class="team-score-val" id="scoreBeta">0</div>
+                <div class="score-adjust-btns">
+                  <button class="btn-score add-100" onclick="adjustTeamScore('beta', 100)">+100</button>
+                  <button class="btn-score add-50" onclick="adjustTeamScore('beta', 50)">+50</button>
+                  <button class="btn-score sub-50" onclick="adjustTeamScore('beta', -50)">-50</button>
+                </div>
+              </div>
+
+              <!-- Kartu Skor Tim Gamma (Hijau) -->
+              <div class="team-score-card team-gamma" id="cardTeamGamma">
+                <div class="team-head">
+                  <span class="team-icon">🐯</span>
+                  <div class="team-info">
+                    <h4 class="team-name" contenteditable="true" title="Klik untuk ubah nama regu">Regu Gamma</h4>
+                    <span class="team-color-badge">Tim Hijau</span>
+                  </div>
+                </div>
+                <div class="team-score-val" id="scoreGamma">0</div>
+                <div class="score-adjust-btns">
+                  <button class="btn-score add-100" onclick="adjustTeamScore('gamma', 100)">+100</button>
+                  <button class="btn-score add-50" onclick="adjustTeamScore('gamma', 50)">+50</button>
+                  <button class="btn-score sub-50" onclick="adjustTeamScore('gamma', -50)">-50</button>
+                </div>
+              </div>
+
+              <!-- Kartu Skor Tim Delta (Ungu) -->
+              <div class="team-score-card team-delta" id="cardTeamDelta">
+                <div class="team-head">
+                  <span class="team-icon">⚡</span>
+                  <div class="team-info">
+                    <h4 class="team-name" contenteditable="true" title="Klik untuk ubah nama regu">Regu Delta</h4>
+                    <span class="team-color-badge">Tim Ungu</span>
+                  </div>
+                </div>
+                <div class="team-score-val" id="scoreDelta">0</div>
+                <div class="score-adjust-btns">
+                  <button class="btn-score add-100" onclick="adjustTeamScore('delta', 100)">+100</button>
+                  <button class="btn-score add-50" onclick="adjustTeamScore('delta', 50)">+50</button>
+                  <button class="btn-score sub-50" onclick="adjustTeamScore('delta', -50)">-50</button>
+                </div>
+              </div>
+
+              <!-- Kartu Skor Tim Epsilon (Oranye) -->
+              <div class="team-score-card team-epsilon" id="cardTeamEpsilon">
+                <div class="team-head">
+                  <span class="team-icon">🦊</span>
+                  <div class="team-info">
+                    <h4 class="team-name" contenteditable="true" title="Klik untuk ubah nama regu">Regu Epsilon</h4>
+                    <span class="team-color-badge">Tim Oranye</span>
+                  </div>
+                </div>
+                <div class="team-score-val" id="scoreEpsilon">0</div>
+                <div class="score-adjust-btns">
+                  <button class="btn-score add-100" onclick="adjustTeamScore('epsilon', 100)">+100</button>
+                  <button class="btn-score add-50" onclick="adjustTeamScore('epsilon', 50)">+50</button>
+                  <button class="btn-score sub-50" onclick="adjustTeamScore('epsilon', -50)">-50</button>
+                </div>
+              </div>
+
+              <!-- Kartu Skor Tim Zeta (Teal) -->
+              <div class="team-score-card team-zeta" id="cardTeamZeta">
+                <div class="team-head">
+                  <span class="team-icon">🐺</span>
+                  <div class="team-info">
+                    <h4 class="team-name" contenteditable="true" title="Klik untuk ubah nama regu">Regu Zeta</h4>
+                    <span class="team-color-badge">Tim Teal</span>
+                  </div>
+                </div>
+                <div class="team-score-val" id="scoreZeta">0</div>
+                <div class="score-adjust-btns">
+                  <button class="btn-score add-100" onclick="adjustTeamScore('zeta', 100)">+100</button>
+                  <button class="btn-score add-50" onclick="adjustTeamScore('zeta', 50)">+50</button>
+                  <button class="btn-score sub-50" onclick="adjustTeamScore('zeta', -50)">-50</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- RODA PUTAR & PANGGUNG TANTANGAN KELAS -->
+          <div class="battle-interactive-layout">
+            <!-- Sisi Kiri: Roda Putar Interaktif -->
+            <div class="wheel-stage-box">
+              <div class="wheel-pointer-top">🔻</div>
+              <div class="wheel-canvas-wrap">
+                <canvas id="battleWheelCanvas" width="340" height="340"></canvas>
+                <div class="wheel-center-button" onclick="spinBattleWheel()" title="Klik untuk Memutar!">
+                  <span>PUTAR</span>
+                </div>
+              </div>
+              <div class="wheel-actions">
+                <button class="btn btn-primary btn-spin-wheel" id="btnSpinWheel" onclick="spinBattleWheel()">
+                  <span>🎰 PUTAR RODA TANTANGAN!</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Sisi Kanan: Panggung Tantangan & Soal -->
+            <div class="challenge-stage-box">
+              <div class="challenge-header-bar">
+                <div class="challenge-header-left">
+                  <span class="challenge-category-pill" id="challengeCategoryPill">Kategori: Belum Diputar</span>
+                  <span class="challenge-bank-count-pill" title="Tersedia 100 Bank Soal Seru untuk Kelas!">📚 100 Bank Soal Siap Main</span>
+                </div>
+                <span class="challenge-points-pill" id="challengePointsPill">+0 Poin</span>
+              </div>
+
+              <div class="challenge-body" id="challengeBodyArea">
+                <!-- Tampilan Awal Sebelum Roda Diputar -->
+                <div class="challenge-placeholder" id="challengePlaceholder">
+                  <div class="placeholder-icon">🎡</div>
+                  <h4>Siapakah Regu Tercepat & Terhebat di Kelas?</h4>
+                  <p>Tekan tombol <strong>"PUTAR RODA TANTANGAN"</strong> di samping untuk mengundi dari <strong>100 Bank Soal Tantangan</strong> dan rebut poin untuk kelas!</p>
+                </div>
+
+                <!-- Tampilan Tantangan Aktif -->
+                <div class="challenge-active-card" id="challengeActiveCard" style="display:none;">
+                  <h4 class="challenge-title" id="challengeTitle">Judul Tantangan</h4>
+                  <div class="challenge-desc" id="challengeDesc">Deskripsi tantangan...</div>
+                  
+                  <!-- Visual Case / Skenario -->
+                  <div class="challenge-visual-box" id="challengeVisualBox"></div>
+
+                  <!-- Timer Countdown Rebutan 15 Detik -->
+                  <div class="challenge-timer-row">
+                    <div class="c-timer-badge" id="challengeTimerBadge">⏱️ Waktu Rebutan: 15s</div>
+                    <div class="c-timer-btns">
+                      <button class="btn btn-sm btn-outline" id="btnStartChallengeTimer" onclick="startChallengeCountdown(15)">▶ Mulai Hitung Mundur</button>
+                      <button class="btn btn-sm btn-outline" onclick="stopChallengeCountdown()">⏹ Stop</button>
+                      <button class="btn btn-sm btn-outline" onclick="nextChallengeInCategory()" title="Ganti ke soal lain dalam kategori yang sama tanpa memutar roda ulang">🎲 Ganti Soal Lain</button>
+                    </div>
+                  </div>
+
+                  <!-- Kunci Jawaban Guru & Pembahasan -->
+                  <div class="challenge-answer-reveal">
+                    <button class="btn btn-sm btn-outline" id="btnToggleRevealAnswer" onclick="toggleChallengeAnswer()">
+                      👁️ Buka Kunci Jawaban & Pembahasan
+                    </button>
+                    <div class="challenge-revealed-ans" id="challengeRevealedAns" style="display:none;">
+                      <div class="ans-badge-key">KUNCI JAWABAN GURU:</div>
+                      <p id="challengeAnswerText">Jawaban...</p>
+                    </div>
+                  </div>
+
+                  <!-- Tombol Pemberian Poin Cepat ke Pemenang -->
+                  <div class="award-points-box">
+                    <span class="award-label">🏆 Klik Regu yang Menjawab Benar (Poin Otomatis Masuk):</span>
+                    <div class="award-btn-group" id="awardBtnGroup">
+                      <!-- Diisi dinamis oleh script.js -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- KONTROL BAWAH: NOBATKAN JUARA KELAS -->
+          <div class="battle-bottom-controls">
+            <button class="btn btn-secondary btn-coronate" onclick="coronateClassroomWinner()">
+              <span>👑 Nobatkan Regu Juara Kelas!</span>
+            </button>
+            <button class="btn btn-outline" onclick="nextRandomChallengeDirect()">
+              <span>⏩ Ganti Tantangan Baru</span>
+            </button>
+          </div>
+
+          <!-- MODAL PENOBATAN JUARA KELAS (CONFETTI & VICTORY) -->
+          <div class="classroom-victory-modal" id="classroomVictoryModal" style="display:none;">
+            <div class="classroom-victory-box">
+              <div class="coronation-crown">👑</div>
+              <h2 class="coronation-title">SELAMAT KEPADA SANG JUARA SIBER!</h2>
+              <div class="winner-team-banner" id="winnerTeamBanner">REGU ALPHA JUARA 1 🏆</div>
+              <p class="winner-congrats-text" id="winnerCongratsText">Luar biasa! Literasi keamanan data, kerja sama regu, dan kecepatan berpikir tim kamu mengungguli seluruh kelas!</p>
+              
+              <div class="podium-scores-list" id="podiumScoresList">
+                <!-- Peringkat skor seluruh regu -->
+              </div>
+
+              <div class="coronation-actions">
+                <button class="btn btn-primary" onclick="closeClassroomVictory()">
+                  <span>🎉 Lanjut Main Ronde Baru</span>
+                </button>
+                <button class="btn btn-outline" onclick="resetBattleScores(); closeClassroomVictory();">
+                  <span>🔄 Reset Skor Pertandingan</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- 5. MENU KUIS (15 SOAL PILIHAN GANDA)           -->
+    <!-- ============================================== -->
+    <section id="kuis" class="content-section">
+      <div class="section-heading">
+        <div class="badge-tag">EVALUASI PEMAHAMAN SISWA (15 SOAL)</div>
+        <h2>Kuis Pemahaman Keamanan Data</h2>
+        <p>Jawab 15 soal pilihan ganda (A, B, C, D) untuk menguji penguasaan materi dan kecakapan literasi digitalmu.</p>
+      </div>
+
+      <!-- Tampilan Mengerjakan Kuis -->
+      <div class="quiz-container-card" id="quizActiveCard">
+        <div class="quiz-header-bar">
+          <div class="quiz-progress-info">
+            <span class="quiz-badge" id="quizQuestionTracker">Soal 1 dari 15</span>
+          </div>
+          <div style="font-size: 0.85rem; font-weight: 700; color: var(--color-text-muted);" id="quizAnsweredTracker">
+            0 / 15 Terjawab
+          </div>
+        </div>
+
+        <div class="quiz-question-box">
+          <div class="quiz-q-num" id="quizQuestionCategory">Kategori Soal</div>
+          <div class="quiz-q-text" id="quizQuestionText">Teks pertanyaan kuis akan dimuat di sini...</div>
+          <div class="quiz-options-list" id="quizOptionsList">
+            <!-- Opsi Jawaban A, B, C, D -->
+          </div>
+        </div>
+
+        <div class="quiz-nav-footer">
+          <button class="btn btn-secondary" id="quizPrevBtn" onclick="quizNavPrev()" disabled>
+            ⬅️ Soal Sebelumnya
+          </button>
+          <button class="btn btn-primary" id="quizNextBtn" onclick="quizNavNext()">
+            Soal Berikutnya ➔
+          </button>
+        </div>
+      </div>
+
+      <!-- Tampilan Hasil / Nilai Kuis -->
+      <div class="quiz-container-card quiz-result-view" id="quizResultCard" style="display: none;">
+        <div class="score-circle">
+          <span class="score-num" id="quizFinalScore">0</span>
+          <span class="score-sub">NILAI AKHIR</span>
+        </div>
+
+        <div class="badge-reward" id="quizRewardBadge">
+          🏆 Lencana Keamanan Digital
+        </div>
+
+        <h3 id="quizFeedbackTitle" style="font-size: 1.5rem; margin-bottom: 0.5rem;">🌟 Sangat Baik!</h3>
+        <p id="quizFeedbackDesc" style="max-width: 580px; margin: 0 auto 1.5rem; color: var(--color-text-muted);">
+          Kamu telah menyelesaikan evaluasi pemahaman keamanan data.
+        </p>
+
+        <!-- Rincian Statistik Kuis -->
+        <div style="display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+          <div style="background: var(--color-bg); border: 1px solid var(--color-border); padding: 0.75rem 1.25rem; border-radius: var(--radius-md);">
+            <div style="font-size: 0.8rem; color: var(--color-text-muted);">Jumlah Benar</div>
+            <div style="font-size: 1.25rem; font-weight: 800; color: var(--color-success);" id="quizCorrectCount">0</div>
+          </div>
+          <div style="background: var(--color-bg); border: 1px solid var(--color-border); padding: 0.75rem 1.25rem; border-radius: var(--radius-md);">
+            <div style="font-size: 0.8rem; color: var(--color-text-muted);">Jumlah Salah</div>
+            <div style="font-size: 1.25rem; font-weight: 800; color: var(--color-danger);" id="quizWrongCount">0</div>
+          </div>
+          <div style="background: var(--color-bg); border: 1px solid var(--color-border); padding: 0.75rem 1.25rem; border-radius: var(--radius-md);">
+            <div style="font-size: 0.8rem; color: var(--color-text-muted);">Persentase</div>
+            <div style="font-size: 1.25rem; font-weight: 800; color: var(--color-primary-blue);" id="quizPercent">0%</div>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+          <button class="btn btn-secondary" onclick="quizRestart()">🔄 Ulangi Kuis</button>
+          <button class="btn btn-primary" onclick="navigateTo('rangkuman')">💡 Buka Halaman Rangkuman</button>
+        </div>
+
+        <!-- Pembahasan Soal Detail -->
+        <div style="margin-top: 2.5rem; text-align: left;">
+          <h4 style="font-size: 1.25rem; margin-bottom: 1rem;">📋 Ulasan dan Pembahasan 15 Soal Lengkap:</h4>
+          <div class="review-list" id="quizReviewList">
+            <!-- Review soal benar/salah -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- 6. MENU RANGKUMAN & 10 ATURAN EMAS             -->
+    <!-- ============================================== -->
+    <section id="rangkuman" class="content-section">
+      <div class="section-heading">
+        <div class="badge-tag">RINGKASAN LENGKAP & PEDOMAN EMAS</div>
+        <h2>Rangkuman Materi & Komitmen Digital</h2>
+        <p>Tinjau tabel intisari seluruh materi, baca kesimpulan penting, dan centang 10 komitmen keamanan digitalmu!</p>
+      </div>
+
+      <!-- Tabel Rangkuman Materi vs Inti -->
+      <!-- 4 PILAR UTAMA RANGKUMAN (RINGKAS & PADAT) -->
+      <div class="summary-4pillars-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+        <div class="pillar-card" style="background: #ffffff; border: 2px solid #93c5fd; border-radius: var(--radius-lg); padding: 1.25rem; box-shadow: var(--shadow-sm);">
+          <div style="font-size: 2rem; margin-bottom: 0.5rem;">🔐</div>
+          <h4 style="color: var(--color-primary-navy); margin-bottom: 0.35rem; font-size: 1.05rem;">1. Lindungi Data Pribadi</h4>
+          <p style="color: var(--color-text-muted); font-size: 0.9rem; margin: 0; line-height: 1.45;">Pilah data sensitif (password, PIN, OTP, NIK) dan jangan pernah membagikannya sembarangan ke orang lain atau internet.</p>
+        </div>
+        <div class="pillar-card" style="background: #ffffff; border: 2px solid #86efac; border-radius: var(--radius-lg); padding: 1.25rem; box-shadow: var(--shadow-sm);">
+          <div style="font-size: 2rem; margin-bottom: 0.5rem;">🔑</div>
+          <h4 style="color: var(--color-primary-navy); margin-bottom: 0.35rem; font-size: 1.05rem;">2. Kuatkan Password & Akun</h4>
+          <p style="color: var(--color-text-muted); font-size: 0.9rem; margin: 0; line-height: 1.45;">Gunakan kombinasi kata sandi minimal 8-12 karakter, aktifkan verifikasi dua langkah (2FA), dan jangan gunakan satu sandi untuk semua akun.</p>
+        </div>
+        <div class="pillar-card" style="background: #ffffff; border: 2px solid #fde047; border-radius: var(--radius-lg); padding: 1.25rem; box-shadow: var(--shadow-sm);">
+          <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎣</div>
+          <h4 style="color: var(--color-primary-navy); margin-bottom: 0.35rem; font-size: 1.05rem;">3. Waspada Phishing & Malware</h4>
+          <p style="color: var(--color-text-muted); font-size: 0.9rem; margin: 0; line-height: 1.45;">Selalu periksa keaslian tautan/pengirim pesan, jangan tergiur hadiah fiktif, dan unduh aplikasi hanya dari toko resmi.</p>
+        </div>
+        <div class="pillar-card" style="background: #ffffff; border: 2px solid #c4b5fd; border-radius: var(--radius-lg); padding: 1.25rem; box-shadow: var(--shadow-sm);">
+          <div style="font-size: 2rem; margin-bottom: 0.5rem;">👣</div>
+          <h4 style="color: var(--color-primary-navy); margin-bottom: 0.35rem; font-size: 1.05rem;">4. Bijak Berjejak Digital & Backup</h4>
+          <p style="color: var(--color-text-muted); font-size: 0.9rem; margin: 0; line-height: 1.45;">Pikirkan sebelum memposting sesuatu karena jejak digital bersifat permanen, serta rutin cadangkan file tugas penting (backup).</p>
+        </div>
+      </div>
+
+      <div class="summary-table-wrap">
+        <table class="summary-table">
+          <thead>
+            <tr>
+              <th style="width: 25%;">Materi</th>
+              <th style="width: 75%;">Inti Pembahasan</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="tag-materi">📄 Data</span></td>
+              <td>Fakta atau keterangan mentah yang dapat digunakan untuk memberikan informasi.</td>
+            </tr>
+            <tr>
+              <td><span class="tag-materi">💡 Informasi</span></td>
+              <td>Data yang telah diolah sehingga memiliki makna atau dapat digunakan untuk memahami sesuatu.</td>
+            </tr>
+            <tr>
+              <td><span class="tag-materi">👤 Data Pribadi</span></td>
+              <td>Informasi yang berkaitan dengan seseorang dan wajib dijaga agar tidak disalahgunakan.</td>
+            </tr>
+            <tr>
+              <td><span class="tag-materi">🔐 Password</span></td>
+              <td>Kata sandi kunci rahasia yang digunakan untuk melindungi dan mengamankan akun.</td>
+            </tr>
+            <tr>
+              <td><span class="tag-materi">🔢 OTP</span></td>
+              <td>Kode sekali pakai untuk membantu memverifikasi identitas pemilik akun (jangan dibagikan ke siapapun).</td>
+            </tr>
+            <tr>
+              <td><span class="tag-materi">🎣 Phishing</span></td>
+              <td>Penipuan dengan memancing korban untuk mendapatkan informasi penting seperti password dan OTP.</td>
+            </tr>
+            <tr>
+              <td><span class="tag-materi">🦠 Malware</span></td>
+              <td>Perangkat lunak berbahaya (virus, spyware, ransomware) yang merusak atau memata-matai perangkat.</td>
+            </tr>
+            <tr>
+              <td><span class="tag-materi">👁️ Privasi</span></td>
+              <td>Hak seseorang untuk menjaga informasi pribadinya agar tidak disebarkan sembarangan tanpa izin.</td>
+            </tr>
+            <tr>
+              <td><span class="tag-materi">👣 Jejak Digital</span></td>
+              <td>Rekam atau jejak aktivitas seseorang ketika menggunakan internet yang bersifat permanen dan sulit dihapus.</td>
+            </tr>
+            <tr>
+              <td><span class="tag-materi">💾 Backup</span></td>
+              <td>Membuat salinan data di tempat lain untuk mengurangi risiko kehilangan file tugas penting.</td>
+            </tr>
+            <tr>
+              <td><span class="tag-materi">📱 Keamanan Perangkat</span></td>
+              <td>Menjaga perangkat smartphone dan komputer dari risiko fisik maupun kejahatan digital.</td>
+            </tr>
+            <tr>
+              <td><span class="tag-materi">🌐 Keamanan Internet</span></td>
+              <td>Menggunakan internet secara aman, cerdas, beretika, dan bertanggung jawab.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Kotak Kesimpulan Utama Pembelajaran -->
+      <div class="summary-quote-box">
+        <div class="quote-icon">🛡️</div>
+        <blockquote>
+          “Keamanan data dimulai dari kebiasaan kita sendiri. Jagalah password, jangan bagikan OTP, lindungi data pribadi, hati-hati terhadap link mencurigakan, dan pikirkan sebelum membagikan sesuatu di Internet.”
+        </blockquote>
+      </div>
+
+      <!-- 10 ATURAN EMAS KEAMANAN DATA (POSTER VISUAL) -->
+      <div style="margin-bottom: 2rem;">
+        <h3 style="font-size: 1.35rem; color: var(--color-primary-navy); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+          <span>🛡️</span> 10 Aturan Emas Keamanan Data
+        </h3>
+        <div class="golden-poster-grid">
+          <div class="golden-poster-card">
+            <div class="poster-num">1</div>
+            <div class="poster-content">
+              <h4>Gunakan Password yang Kuat</h4>
+              <p>Gabungkan huruf besar, huruf kecil, angka, dan simbol unik.</p>
+            </div>
+          </div>
+          <div class="golden-poster-card">
+            <div class="poster-num">2</div>
+            <div class="poster-content">
+              <h4>Jangan Bagikan Password</h4>
+              <p>Rahasiakan password dari teman, sahabat, maupun orang asing.</p>
+            </div>
+          </div>
+          <div class="golden-poster-card">
+            <div class="poster-num">3</div>
+            <div class="poster-content">
+              <h4>Jangan Bagikan OTP</h4>
+              <p>Petugas resmi tidak pernah meminta kode rahasia OTP.</p>
+            </div>
+          </div>
+          <div class="golden-poster-card">
+            <div class="poster-num">4</div>
+            <div class="poster-content">
+              <h4>Waspadai Phishing</h4>
+              <p>Hati-hati terhadap pesan yang menawarkan hadiah tidak masuk akal.</p>
+            </div>
+          </div>
+          <div class="golden-poster-card">
+            <div class="poster-num">5</div>
+            <div class="poster-content">
+              <h4>Periksa Link Sebelum Mengklik</h4>
+              <p>Pastikan alamat tautan berasal dari domain resmi yang aman.</p>
+            </div>
+          </div>
+          <div class="golden-poster-card">
+            <div class="poster-num">6</div>
+            <div class="poster-content">
+              <h4>Lindungi Data Pribadi</h4>
+              <p>Hindari mengunggah foto kartu identitas, KK, atau alamat rumah.</p>
+            </div>
+          </div>
+          <div class="golden-poster-card">
+            <div class="poster-num">7</div>
+            <div class="poster-content">
+              <h4>Minta Izin Sebelum Berbagi Foto</h4>
+              <p>Selalu hormati privasi orang lain sebelum mengunggah foto bersama.</p>
+            </div>
+          </div>
+          <div class="golden-poster-card">
+            <div class="poster-num">8</div>
+            <div class="poster-content">
+              <h4>Selalu Perbarui Perangkat</h4>
+              <p>Update sistem operasi dan aplikasi untuk menutup celah keamanan.</p>
+            </div>
+          </div>
+          <div class="golden-poster-card">
+            <div class="poster-num">9</div>
+            <div class="poster-content">
+              <h4>Lakukan Backup Data Penting</h4>
+              <p>Simpan salinan cadangan tugas ke Google Drive atau flashdisk.</p>
+            </div>
+          </div>
+          <div class="golden-poster-card">
+            <div class="poster-num">10</div>
+            <div class="poster-content">
+              <h4>Pikirkan Sebelum Memposting</h4>
+              <p>Ingatlah bahwa jejak digital bersifat abadi di dunia internet.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Checklist Komitmen Siswa -->
+      <div class="summary-grid-2">
+        <div class="summary-card">
+          <h3>✅ Lembar Komitmen Siswa Cerdas</h3>
+          <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 1rem;">
+            Centang aturan yang siap kamu terapkan dalam kehidupan sehari-hari:
+          </p>
+          <ul class="checklist-rules" id="commitmentsList">
+            <!-- Checklist items dimuat via JS -->
+          </ul>
+          <div style="margin-top: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+            <span id="commitmentProgressText" style="font-size: 0.85rem; font-weight: 800; color: var(--color-primary-blue);">0 dari 10 Dicentang</span>
+            <button class="btn btn-secondary" onclick="resetCommitments()" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">Reset Centang</button>
+          </div>
+        </div>
+
+        <!-- Glosarium Mini Pelajar -->
+        <div class="summary-card">
+          <h3>📖 Glosarium Istilah Keamanan Digital</h3>
+          <div class="glossary-list">
+            <div class="glossary-item">
+              <div class="glossary-term">📄 Data</div>
+              <div class="glossary-desc">Fakta atau catatan mentah yang belum diolah dan belum memiliki makna jelas.</div>
+            </div>
+            <div class="glossary-item">
+              <div class="glossary-term">💡 Informasi</div>
+              <div class="glossary-desc">Data yang sudah diolah dan diatur sehingga bermakna dan berguna bagi penerima.</div>
+            </div>
+            <div class="glossary-item">
+              <div class="glossary-term">🔐 Password</div>
+              <div class="glossary-desc">Kata sandi rahasia untuk membuka dan melindungi akun digitalmu.</div>
+            </div>
+            <div class="glossary-item">
+              <div class="glossary-term">🔢 Kode OTP</div>
+              <div class="glossary-desc">Kode verifikasi angka rahasia sekali pakai untuk membuktikan identitas pemilik akun.</div>
+            </div>
+            <div class="glossary-item">
+              <div class="glossary-term">🎣 Phishing</div>
+              <div class="glossary-desc">Jebakan penipuan bermodus pesan atau tautan palsu untuk memancing data rahasia.</div>
+            </div>
+            <div class="glossary-item">
+              <div class="glossary-term">🦠 Malware</div>
+              <div class="glossary-desc">Perangkat lunak jahat (seperti virus dan spyware) yang dapat merusak atau memata-matai gawai.</div>
+            </div>
+            <div class="glossary-item">
+              <div class="glossary-term">👣 Jejak Digital</div>
+              <div class="glossary-desc">Rekam riwayat aktivitas yang tertinggal saat seseorang beraktivitas di internet.</div>
+            </div>
+            <div class="glossary-item">
+              <div class="glossary-term">💾 Backup</div>
+              <div class="glossary-desc">Membuat salinan data penting di media lain untuk menghindari risiko kehilangan.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tombol Cetak / Simpan Ringkasan -->
+      <div style="text-align: center; margin-top: 2rem;">
+        <button class="btn btn-primary" onclick="window.print()">
+          🖨️ Cetak / Simpan Halaman Rangkuman (PDF)
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================== -->
+  <!-- MODAL DETAIL ANCAMAN (POP-UP)                  -->
+  <!-- ============================================== -->
+  <div class="modal-backdrop" id="threatModal" onclick="handleModalBackdropClick(event)">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-icon" id="modalThreatIcon">⚠️</span>
+          <div>
+            <h3 id="modalThreatTitle">Judul Ancaman</h3>
+            <span id="modalThreatBadge" class="threat-badge badge-high">Tingkat Risiko: Tinggi</span>
+          </div>
+        </div>
+        <button class="modal-close-btn" onclick="closeThreatModal()" aria-label="Tutup Jendela Modal">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-section-item">
+          <div class="modal-section-title">📖 Pengertian</div>
+          <div class="modal-section-content" id="modalThreatDef">Penjelasan pengertian ancaman...</div>
+        </div>
+
+        <div class="modal-section-item">
+          <div class="modal-section-title">💡 Contoh Kasus Nyata di Kalangan Siswa SMP</div>
+          <div class="modal-section-content" id="modalThreatCase">Contoh kasus sehari-hari...</div>
+        </div>
+
+        <div class="modal-section-item">
+          <div class="modal-section-title">⚠️ Ciri-ciri dan Tanda Bahaya</div>
+          <div class="modal-section-content" id="modalThreatSigns">Ciri-ciri ancaman...</div>
+        </div>
+
+        <div class="modal-section-item">
+          <div class="modal-section-title">🛡️ Cara Mencegah dan Mengatasi</div>
+          <div class="modal-section-content" id="modalThreatPrevent">Langkah pencegahan...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================== -->
+  <!-- MODAL CARA BERMAIN EDUKATIF INTERAKTIF         -->
+  <!-- ============================================== -->
+  <div class="modal-backdrop" id="howToPlayModal" onclick="closeHowToPlayModal(event)">
+    <div class="modal-dialog modal-how-to-play" onclick="event.stopPropagation()">
+      <button class="modal-close-btn" onclick="closeHowToPlayModal()" aria-label="Tutup">&times;</button>
+      <div class="modal-top">
+        <span class="modal-icon" id="htpIcon">📖</span>
+        <div>
+          <h3 id="htpTitle">Petunjuk Cara Bermain</h3>
+          <span class="modal-category" id="htpCategory">Panduan Aktivitas</span>
+        </div>
+      </div>
+      <div class="modal-content-details" id="htpContentBody">
+        <!-- Konten petunjuk diisi secara dinamis oleh JavaScript -->
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-primary" onclick="closeHowToPlayModal()">Mengerti, Siap Bermain! 🚀</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ============================================== -->
+  <!-- FOOTER                                         -->
+  <!-- ============================================== -->
+  <footer class="app-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <span style="font-size: 1.4rem;">🛡️</span>
+        <span>Keamanan Data dan Informasi • Informatika SMP/MTs</span>
+      </div>
+      <p class="footer-text">
+        Media Pembelajaran Interaktif untuk Siswa SMP/MTs Kelas 8–9. Dirancang untuk menumbuhkan literasi keamanan digital, perlindungan data pribadi, dan etika berteknologi secara cerdas dan aman.
+      </p>
+      <div class="footer-bottom">
+        &copy; 2026 Modul Informatika SMP/MTs • Mandiri Belajar Interaktif
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script Eksternal -->
+  <script src="script.js"></script>
+</body>
+</html>
